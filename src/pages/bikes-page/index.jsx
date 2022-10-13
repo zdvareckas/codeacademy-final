@@ -9,9 +9,6 @@ const BikesPage = () => {
   return (
 
     <Box sx={{ display: 'flex', gap: 5 }}>
-
-      {/* TODO: filters  */}
-
       <Drawer
         open={open}
         variant="persistent"
