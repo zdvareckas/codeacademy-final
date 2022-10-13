@@ -1,0 +1,11 @@
+import * as React from 'react';
+import { BrowserRouter } from 'react-router-dom';
+import PageRoutes from './routes';
+
+const App = () => (
+  <BrowserRouter>
+    <PageRoutes />
+  </BrowserRouter>
+);
+
+export default App;
