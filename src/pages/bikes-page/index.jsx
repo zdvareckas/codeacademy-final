@@ -1,83 +1,58 @@
 import React from 'react';
 import {
-  Box, Button, Container, Drawer, Grid, Paper, Typography,
+  Box, Button, Container, Grid, Paper, Typography,
 } from '@mui/material';
+import Filter from '../../components/filter';
 
-const BikesPage = () => {
-  const [open, setOpen] = React.useState(true);
+const BikesPage = () => (
+  <Box sx={{ position: 'relative', display: 'flex', gap: 5 }}>
+    <Filter />
+    <Container>
 
-  return (
-
-    <Box sx={{ display: 'flex', gap: 5 }}>
-      <Drawer
-        open={open}
-        variant="persistent"
-        elevation={0}
-        PaperProps={{
-          sx: {
-            p: 5,
-            mt: 8,
-            width: 350,
-          },
-        }}
+      <Grid
+        container
+        spacing={3}
+        sx={{ mt: 5 }}
       >
-        asasd
-      </Drawer>
-
-      <Container>
-
-        <Button onClick={() => {
-          setOpen(!open);
-        }}
-        >
-          FILTERS
-        </Button>
-
         <Grid
-          container
-          spacing={3}
-          sx={{ mt: 5 }}
+          item
+          xs={3}
         >
-          <Grid
-            item
-            xs={3}
+          <Paper sx={{
+            position: 'relative',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: 2,
+          }}
           >
-            <Paper sx={{
-              position: 'relative',
+            <Box
+              component="img"
+              src="https://assets.specialized.com/i/specialized/95221-06_LEVO-SW-CARBON-METWHTSIL-CHRM-DRMSIL_HERO?bg=rgb(241,241,241)&w=1600&h=900&fmt=auto"
+              sx={{ objectFit: 'contain' }}
+            />
+            <Box sx={{
               display: 'flex',
               flexDirection: 'column',
-              gap: 2,
+              gap: 1,
+              px: 2,
             }}
             >
-              <Box
-                component="img"
-                src="https://assets.specialized.com/i/specialized/95221-06_LEVO-SW-CARBON-METWHTSIL-CHRM-DRMSIL_HERO?bg=rgb(241,241,241)&w=1600&h=900&fmt=auto"
-                sx={{ objectFit: 'contain' }}
-              />
-              <Box sx={{
-                display: 'flex',
-                flexDirection: 'column',
-                gap: 1,
-                px: 2,
-              }}
+              <Typography
+                fontWeight="bold"
+                variant="h5"
               >
-                <Typography
-                  fontWeight="bold"
-                  variant="h5"
-                >
-                  S-Works Turbo Levo
-                </Typography>
-                <Typography variant="body1">$ 15,000</Typography>
-              </Box>
-              <Button variant="contained" fullWidth>Preview</Button>
-            </Paper>
-
-          </Grid>
+                S-Works Turbo Levo
+              </Typography>
+              <Typography variant="body1">$ 15,000</Typography>
+            </Box>
+            <Button variant="contained" fullWidth>Preview</Button>
+          </Paper>
 
         </Grid>
 
-      </Container>
-    </Box>
-  );
-};
+      </Grid>
+
+    </Container>
+  </Box>
+);
 export default BikesPage;
