@@ -1,0 +1,20 @@
+{
+  "bikes": [
+    {
+      "id": 1,
+      "title": "Rockhopper Expert 29",
+      "description": "Dviračio geometrija pritaikyta suaugusiems vyrams ir moterims.",
+      "typeId": "1",
+      "driverId": "2",
+      "sizes": [
+        "S (Iki 1.65m)",
+        "M (Iki 1.78m)",
+        "L (Iki 1.85m)",
+        "XL (Iki 1.93m)",
+        "XXL (Iki 2m)"
+      ],
+      "img": "https://assets.specialized.com/i/specialized/91822-34_ROCKHOPPER-EXPERT-29-OAKGRNMET-METWHTSIL_HERO?bg=rgb(241,241,241)&w=1600&h=900&fmt=auto",
+      "price": 7.22
+    }
+  ]
+}
