@@ -4,7 +4,7 @@ import { Outlet } from 'react-router-dom';
 import Navbar from '../components/navbar';
 
 const MainLayout = () => (
-  <Box sx={{ paddingTop: 15 }}>
+  <Box sx={{ paddingTop: 8 }}>
     <Navbar />
     <Outlet />
   </Box>

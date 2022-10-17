@@ -11,13 +11,13 @@ const Filter = ({ filtersOpen }) => (
     elevation={0}
     PaperProps={{
       sx: {
-        p: 5,
         mt: 8,
+        p: 4,
         width: 300,
       },
     }}
   >
-    asasd
+    Filters
   </Drawer>
 
 );

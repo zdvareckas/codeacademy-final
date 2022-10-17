@@ -26,21 +26,40 @@ const BikesPage = () => {
         position: 'relative',
         display: 'flex',
         justifyContent: 'center',
+        flexDirection: 'column',
       }}
     >
+      <Box
+        component="img"
+        src="https://assets.specialized.com/i/specialized/plp-banner_Bikes?$hybris-category-hero$"
+        sx={{
+          height: 200,
+          width: '100%',
+          objectFit: 'cover',
+          mb: 5,
+        }}
+      />
+
+      <IconButton
+        sx={{
+          position: 'absolute',
+          right: 35,
+          top: 210,
+          backgroundColor: 'red',
+        }}
+        onClick={() => {
+          setFiltersOpen(!filtersOpen);
+        }}
+      >
+        <TuneIcon />
+      </IconButton>
+
       <Filter
         filtersOpen={filtersOpen}
         setFiltersOpen={setFiltersOpen}
       />
+
       <ResponsiveItemsGrid filtersOpen={filtersOpen}>
-        <IconButton
-          sx={{ position: 'absolute', right: '105px', top: '-45px' }}
-          onClick={() => {
-            setFiltersOpen(!filtersOpen);
-          }}
-        >
-          <TuneIcon />
-        </IconButton>
 
         {bikes.map(({
           id, title, price, img,
