@@ -43,6 +43,7 @@ const BikesFilter = () => {
     } else {
       searchParams.delete('suspensionId');
     }
+
     setSearchParams(searchParams);
     setBikeSuspensionTypeFilter(e.target.value);
   };

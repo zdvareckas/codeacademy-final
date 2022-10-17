@@ -8,7 +8,7 @@ const ResponsiveItemsGrid = ({ filtersOpen, children }) => (
       gap: 3,
       placeContent: 'center',
       gridTemplateColumns: {
-        xl: `${filtersOpen ? 'repeat(3, 350px)' : 'repeat(4, 400px)'}`,
+        xl: `${filtersOpen ? 'repeat(3, 450px)' : 'repeat(4, 400px)'}`,
         lg: 'repeat(3, 350px)',
         md: `${filtersOpen ? 'repeat(2, 350px)' : 'repeat(2, 450px)'}`,
         sm: 'repeat(2, 400px)',
