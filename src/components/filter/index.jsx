@@ -1,11 +1,11 @@
 import React from 'react';
 import {
-  Box,
   Button,
   Drawer,
   IconButton,
 } from '@mui/material';
 import TuneIcon from '@mui/icons-material/Tune';
+import CloseIcon from '@mui/icons-material/Close';
 import ItemFilterContext from '../../contexts/filter-context';
 
 const Filter = ({ handleReset, children }) => {
@@ -28,27 +28,28 @@ const Filter = ({ handleReset, children }) => {
         open={filterOpen}
         variant="persistent"
         elevation={0}
+        sx={{ position: 'relative' }}
         PaperProps={{
           sx: {
+            gap: 5,
             mt: 8,
             p: 4,
             width: 300,
           },
         }}
       >
-        <Box sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          gap: 5,
-        }}
+        <IconButton
+          sx={{
+            position: 'absolute',
+            right: 0,
+            top: 0,
+          }}
+          onClick={handleFilterOpen}
         >
-          {children}
-          <Button
-            onClick={handleReset}
-          >
-            Reset filters
-          </Button>
-        </Box>
+          <CloseIcon />
+        </IconButton>
+        {children}
+        <Button onClick={handleReset}>Reset filters</Button>
       </Drawer>
     </>
   );

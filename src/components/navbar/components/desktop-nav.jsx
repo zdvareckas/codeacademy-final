@@ -24,6 +24,7 @@ const DesktopNav = ({ handleDrawerToggle, pages }) => {
       sx={{
         backgroundColor: `${homePage ? 'common.white' : 'pallete.primary'}`,
         color: `${homePage ? 'black' : 'common.white'}`,
+        height: '64px',
       }}
     >
       <Toolbar
@@ -35,7 +36,11 @@ const DesktopNav = ({ handleDrawerToggle, pages }) => {
         <IconButton
           edge="start"
           onClick={handleDrawerToggle}
-          sx={{ mr: 2, display: { sm: 'none' }, color: 'inherit' }}
+          sx={{
+            mr: 2,
+            display: { sm: 'none' },
+            color: 'inherit',
+          }}
         >
           <MenuIcon />
         </IconButton>
