@@ -1,19 +1,16 @@
 import React from 'react';
-import {
-  Box,
-  IconButton,
-} from '@mui/material';
-import TuneIcon from '@mui/icons-material/Tune';
+import { Box } from '@mui/material';
 import { useSearchParams } from 'react-router-dom';
-import Filter from '../../components/filter';
-import ResponsiveItemsGrid from '../../components/responsive-items-grid';
 import { bikeService } from '../../services/bikes-service';
+import ResponsiveItemsGrid from '../../components/responsive-items-grid';
 import ShopItem from '../../components/shop-item';
+import BikesFilter from './components/bikes-filter';
+import ItemFilterContext from '../../contexts/filter-context';
 
 const BikesPage = () => {
-  const [filtersOpen, setFiltersOpen] = React.useState(true);
   const [bikes, setBikes] = React.useState([]);
   const [searchParams] = useSearchParams();
+  const { filterOpen } = React.useContext(ItemFilterContext);
 
   React.useEffect(() => {
     (async () => {
@@ -42,26 +39,9 @@ const BikesPage = () => {
         }}
       />
 
-      <IconButton
-        sx={{
-          position: 'absolute',
-          right: 35,
-          top: 210,
-        }}
-        onClick={() => {
-          setFiltersOpen(!filtersOpen);
-        }}
-      >
-        <TuneIcon />
-      </IconButton>
+      <BikesFilter />
 
-      <Filter
-        filtersOpen={filtersOpen}
-        setFiltersOpen={setFiltersOpen}
-      />
-
-      <ResponsiveItemsGrid filtersOpen={filtersOpen}>
-
+      <ResponsiveItemsGrid filtersOpen={filterOpen}>
         {bikes.map(({
           id, title, price, img,
         }) => (
@@ -75,7 +55,6 @@ const BikesPage = () => {
         ))}
 
       </ResponsiveItemsGrid>
-
     </Box>
   );
 };
