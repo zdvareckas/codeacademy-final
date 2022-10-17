@@ -3,6 +3,7 @@ import {
   Box,
   Drawer,
 } from '@mui/material';
+import { useSearchParams } from 'react-router-dom';
 import { suspensionsService } from '../../services/suspensions-service copy';
 import { materialsService } from '../../services/materials-service';
 import { sizesService } from '../../services/sizes-service';
@@ -20,19 +21,45 @@ const Filter = ({ filtersOpen }) => {
   const [bikeMaterials, setBikeMaterials] = React.useState([]);
   const [bikeSizes, setBikeSizes] = React.useState([]);
 
+  const [searchParams, setSearchParams] = useSearchParams();
+
   const handleBikeSuspensionChange = (e) => {
+    if (e.target.value) {
+      searchParams.set('suspensionId', e.target.value);
+    } else {
+      searchParams.delete('suspensionId');
+    }
+    setSearchParams(searchParams);
     setBikeSuspensionTypeFilter(e.target.value);
   };
 
   const hanldleBikeTypeChange = (e) => {
+    if (e.target.value) {
+      searchParams.set('typeId', e.target.value);
+    } else {
+      searchParams.delete('typeId');
+    }
+    setSearchParams(searchParams);
     setBikeTypeFilter(e.target.value);
   };
 
   const handleBikeMaterialChange = (e) => {
+    if (e.target.value) {
+      searchParams.set('materialId', e.target.value);
+    } else {
+      searchParams.delete('materialId');
+    }
+    setSearchParams(searchParams);
     setBikeMaterialFilter(e.target.value);
   };
 
   const handleBikeSizeChange = (e) => {
+    if (e.target.value) {
+      searchParams.set('sizeId', e.target.value);
+    } else {
+      searchParams.delete('sizeId');
+    }
+    setSearchParams(searchParams);
     setBikeSizeFilter(e.target.value);
   };
 

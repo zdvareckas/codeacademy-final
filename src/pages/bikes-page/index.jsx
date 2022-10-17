@@ -4,21 +4,23 @@ import {
   IconButton,
 } from '@mui/material';
 import TuneIcon from '@mui/icons-material/Tune';
+import { useSearchParams } from 'react-router-dom';
 import Filter from '../../components/filter';
 import ResponsiveItemsGrid from '../../components/responsive-items-grid';
 import { bikeService } from '../../services/bikes-service';
 import ShopItem from '../../components/shop-item';
 
 const BikesPage = () => {
-  const [filtersOpen, setFiltersOpen] = React.useState(false);
+  const [filtersOpen, setFiltersOpen] = React.useState(true);
   const [bikes, setBikes] = React.useState([]);
+  const [searchParams] = useSearchParams();
 
   React.useEffect(() => {
     (async () => {
-      const data = await bikeService.fetchAll();
+      const data = await bikeService.fetchAll(searchParams.toString());
       setBikes(data);
     })();
-  }, []);
+  }, [searchParams]);
 
   return (
     <Box
