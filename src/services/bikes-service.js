@@ -1,6 +1,6 @@
 const domain = 'http://localhost:8000';
 const collectionName = 'bikes';
-const relationshipParams = '_expand=type&_expand=driver';
+const relationshipParams = '_expand=type&_expand=suspension&_expand=material&_expand=size';
 
 const fetchAll = async (searchParams = null) => {
   const urlSearchParams = searchParams ? `&${searchParams}` : '';
