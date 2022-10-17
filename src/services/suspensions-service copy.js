@@ -8,6 +8,6 @@ const fetchAll = async () => {
   return fetchedItems;
 };
 
-export const suspensionService = {
+export const suspensionsService = {
   fetchAll,
 };
