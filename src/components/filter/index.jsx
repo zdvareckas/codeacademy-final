@@ -1,6 +1,7 @@
 import React from 'react';
 import {
   Box,
+  Button,
   Drawer,
 } from '@mui/material';
 import { useSearchParams } from 'react-router-dom';
@@ -61,6 +62,14 @@ const Filter = ({ filtersOpen }) => {
     }
     setSearchParams(searchParams);
     setBikeSizeFilter(e.target.value);
+  };
+
+  const handleFilterReset = () => {
+    setSearchParams([]);
+    setBikeSuspensionTypeFilter('');
+    setBikeTypeFilter('');
+    setBikeMaterialFilter('');
+    setBikeSizeFilter('');
   };
 
   React.useEffect(() => {
@@ -126,6 +135,11 @@ const Filter = ({ filtersOpen }) => {
           value={bikeSizeFilter}
           onChange={handleBikeSizeChange}
         />
+        <Button
+          onClick={handleFilterReset}
+        >
+          Reset filters
+        </Button>
       </Box>
     </Drawer>
   );
