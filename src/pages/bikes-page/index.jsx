@@ -45,7 +45,6 @@ const BikesPage = () => {
           position: 'absolute',
           right: 35,
           top: 210,
-          backgroundColor: 'red',
         }}
         onClick={() => {
           setFiltersOpen(!filtersOpen);
