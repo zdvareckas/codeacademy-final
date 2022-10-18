@@ -9,6 +9,7 @@ const Banner = () => (
       height: 200,
       width: '100%',
       objectFit: 'cover',
+      objectPosition: 'bottom',
     }}
   />
 );

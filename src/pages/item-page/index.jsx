@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom';
 import StraightenIcon from '@mui/icons-material/Straighten';
 import { bikeService } from '../../services/bikes-service';
 import Banner from '../../components/banner';
+import { ScrollableImageContainer } from './components';
 
 const ItemPage = () => {
   const { itemId } = useParams();
@@ -33,16 +34,8 @@ const ItemPage = () => {
       }}
       >
 
-        <Box sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          gap: 1,
-          width: { xs: '100%', md: '50%' },
-          maxHeight: { xs: 300, md: 550 },
-          overflow: 'auto',
-          '&::-webkit-scrollbar': { width: 0 },
-        }}
-        >
+        <ScrollableImageContainer>
+
           <Box
             component="img"
             src={item.img}
@@ -56,7 +49,7 @@ const ItemPage = () => {
             src={item.img}
           />
 
-        </Box>
+        </ScrollableImageContainer>
 
         <Box sx={{
           display: 'flex',
