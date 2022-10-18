@@ -6,6 +6,7 @@ import ResponsiveItemsGrid from '../../components/responsive-items-grid';
 import ShopItem from '../../components/shop-item';
 import BikesFilter from './components/bikes-filter';
 import ItemFilterContext from '../../contexts/filter-context';
+import Banner from '../../components/banner';
 
 const BikesPage = () => {
   const [bikes, setBikes] = React.useState([]);
@@ -28,16 +29,7 @@ const BikesPage = () => {
         flexDirection: 'column',
       }}
     >
-      <Box
-        component="img"
-        src="https://assets.specialized.com/i/specialized/plp-banner_Bikes?$hybris-category-hero$"
-        sx={{
-          height: 200,
-          width: '100%',
-          objectFit: 'cover',
-          mb: 5,
-        }}
-      />
+      <Banner />
 
       <BikesFilter />
       <ResponsiveItemsGrid filtersOpen={filterOpen}>

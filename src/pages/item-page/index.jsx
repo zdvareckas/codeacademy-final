@@ -5,6 +5,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import StraightenIcon from '@mui/icons-material/Straighten';
 import { bikeService } from '../../services/bikes-service';
+import Banner from '../../components/banner';
 
 const ItemPage = () => {
   const { itemId } = useParams();
@@ -14,93 +15,98 @@ const ItemPage = () => {
   React.useEffect(() => {
     (async () => {
       const data = await bikeService.fetchById(itemId);
-      console.log(data);
       setItem(data);
     })();
   }, [itemId]);
 
   return (
-    <Box sx={{
-      display: 'flex',
-      justifyContent: 'center',
-      gap: 5,
-      p: 4,
-      width: '100%',
-      flexDirection: { xs: 'column', md: 'row' },
-    }}
-    >
-      <Box sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        gap: 1,
-        width: { xs: '100%', md: '50%' },
-        maxHeight: { xs: 300, md: 550 },
-        overflow: 'auto',
-        '&::-webkit-scrollbar': { width: 0 },
-      }}
-      >
-        <Box
-          component="img"
-          src={item.img}
-        />
-        <Box
-          component="img"
-          src={item.img}
-        />
-        <Box
-          component="img"
-          src={item.img}
-        />
-
-      </Box>
+    <>
+      <Banner />
 
       <Box sx={{
         display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'start',
-        width: { xs: '100%', md: '40%' },
-        gap: 2,
+        justifyContent: 'center',
+        gap: 5,
+        flexDirection: { xs: 'column', md: 'row' },
+        mx: { xs: 5, md: 10 },
+        p: 1,
       }}
       >
 
-        <Typography variant="h3">
-          {item.title}
-        </Typography>
+        <Box sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 1,
+          width: { xs: '100%', md: '50%' },
+          maxHeight: { xs: 300, md: 550 },
+          overflow: 'auto',
+          '&::-webkit-scrollbar': { width: 0 },
+        }}
+        >
+          <Box
+            component="img"
+            src={item.img}
+          />
+          <Box
+            component="img"
+            src={item.img}
+          />
+          <Box
+            component="img"
+            src={item.img}
+          />
 
-        <Typography variant="h5">{item.price}</Typography>
-
-        <Typography variant="h6">Select size:</Typography>
-        <Box sx={{ display: 'flex', gap: 1 }}>
-          <Button variant="outlined">{item.size?.label}</Button>
         </Box>
 
-        <Typography
-          variant="body2"
-          sx={{ width: { xs: '100%', md: '60%' } }}
+        <Box sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'start',
+          width: { xs: '100%', md: '40%' },
+          gap: 2,
+        }}
         >
-          {item.description}
-        </Typography>
 
-        <Button
-          onClick={() => {
+          <Typography variant="h3">
+            {item.title}
+          </Typography>
+
+          <Typography variant="h5">{item.price}</Typography>
+
+          <Typography variant="h6">Select size:</Typography>
+          <Box sx={{ display: 'flex', gap: 1 }}>
+            <Button variant="outlined">{item.size?.label}</Button>
+          </Box>
+
+          <Typography
+            variant="body2"
+            sx={{ width: { xs: '100%', md: '60%' } }}
+          >
+            {item.description}
+          </Typography>
+
+          <Button
+            onClick={() => {
+              setSizeGuideOpen(!sizeGuideOpen);
+            }}
+            endIcon={<StraightenIcon />}
+          >
+            Size guide
+          </Button>
+        </Box>
+
+        <Dialog
+          open={sizeGuideOpen}
+          onClose={() => {
             setSizeGuideOpen(!sizeGuideOpen);
           }}
-          endIcon={<StraightenIcon />}
         >
-          Size guide
-        </Button>
+          <Box component="img" src="/bike-sizes.jpg" />
+        </Dialog>
+
       </Box>
+    </>
 
-      <Dialog
-        open={sizeGuideOpen}
-        onClose={() => {
-          setSizeGuideOpen(!sizeGuideOpen);
-        }}
-      >
-        <Box component="img" src="/bike-sizes.jpg" />
-      </Dialog>
-
-    </Box>
   );
 };
 

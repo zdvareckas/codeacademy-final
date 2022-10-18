@@ -18,6 +18,7 @@ const ResponsiveItemsGrid = ({ filtersOpen, children }) => (
       ml: {
         md: `${filtersOpen ? '300px' : '0px'}`,
       },
+      mt: 5,
       p: 2,
     }}
   >
