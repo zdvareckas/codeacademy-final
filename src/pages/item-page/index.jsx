@@ -16,74 +16,66 @@ const ItemPage = () => {
   }, [itemId]);
 
   return (
-    <Box sx={{ display: 'flex', alignItems: 'center' }}>
+    <Box sx={{
+      display: 'flex',
+      justifyContent: 'center',
+      gap: 5,
+      p: 4,
+      width: '100%',
+      flexDirection: { xs: 'column', md: 'row' },
+    }}
+    >
+      <Box sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 1,
+        width: { xs: '100%', md: '50%' },
+        maxHeight: { xs: 300, md: 550 },
+        overflow: 'auto',
+        '&::-webkit-scrollbar': { width: 0 },
+      }}
+      >
+        <Box
+          component="img"
+          src={item.img}
+        />
+        <Box
+          component="img"
+          src={item.img}
+        />
+        <Box
+          component="img"
+          src={item.img}
+        />
+
+      </Box>
 
       <Box sx={{
         display: 'flex',
-        gap: 5,
-        justifyContent: 'center',
-        p: 5,
-        width: '100%',
-        flexDirection: 'row',
+        flexDirection: 'column',
+        alignItems: 'start',
+        width: { xs: '100%', md: '40%' },
+        gap: 2,
       }}
       >
 
-        <Box sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          gap: 1,
-          width: '60%',
-          // height: 300,
-          maxHeight: 700,
-          overflow: 'auto',
-          '&::-webkit-scrollbar': { width: 0 },
-        }}
-        >
-          <Box
-            component="img"
-            src={item.img}
-          />
-          <Box
-            component="img"
-            src={item.img}
-          />
-          <Box
-            component="img"
-            src={item.img}
-          />
+        <Typography variant="h3">
+          {item.title}
+        </Typography>
 
+        <Typography variant="h5">{item.price}</Typography>
+
+        <Typography variant="h6">Select size:</Typography>
+        <Box sx={{ display: 'flex', gap: 1 }}>
+          <Button variant="outlined">{item.size?.label}</Button>
         </Box>
 
-        <Box sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'start',
-          width: { xs: '100%', md: '40%' },
-          gap: 2,
-        }}
+        <Typography
+          variant="body2"
+          sx={{ width: { xs: '100%', md: '60%' } }}
         >
-
-          <Typography variant="h2">
-            {item.title}
-          </Typography>
-
-          <Typography variant="h5">{item.price}</Typography>
-
-          <Typography variant="h6">Select size:</Typography>
-          <Box sx={{ display: 'flex', gap: 1 }}>
-            <Button variant="outlined">{item.size?.label}</Button>
-          </Box>
-
-          <Typography
-            variant="body2"
-            sx={{ width: '50%' }}
-          >
-            {item.description}
-
-          </Typography>
-
-        </Box>
-
+          {item.description}
+        </Typography>
       </Box>
     </Box>
 
