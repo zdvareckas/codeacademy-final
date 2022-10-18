@@ -4,7 +4,7 @@ import MainLayout from '../layouts/main-layout';
 import BikesPage from '../pages/bikes-page';
 import CartPage from '../pages/cart-page';
 import ContactsPage from '../pages/contacts-page';
-import EquipmentPage from '../pages/equipment-page';
+import EquipmentsPage from '../pages/equipments-page';
 import HomePage from '../pages/home-page';
 import ItemPage from '../pages/item-page';
 
@@ -15,7 +15,7 @@ const PageRoutes = () => (
       <Route path="bikes" element={<BikesPage />} />
       <Route path="item/:itemId" element={<ItemPage />} />
       <Route path="contacts" element={<ContactsPage />} />
-      <Route path="equipment" element={<EquipmentPage />} />
+      <Route path="equipment" element={<EquipmentsPage />} />
       <Route path="cart" element={<CartPage />} />
     </Route>
   </Routes>
