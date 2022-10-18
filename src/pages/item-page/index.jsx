@@ -1,11 +1,15 @@
-import { Box, Button, Typography } from '@mui/material';
+import {
+  Box, Button, Dialog, Typography,
+} from '@mui/material';
 import React from 'react';
 import { useParams } from 'react-router-dom';
+import StraightenIcon from '@mui/icons-material/Straighten';
 import { bikeService } from '../../services/bikes-service';
 
 const ItemPage = () => {
   const { itemId } = useParams();
   const [item, setItem] = React.useState([]);
+  const [sizeGuideOpen, setSizeGuideOpen] = React.useState(false);
 
   React.useEffect(() => {
     (async () => {
@@ -76,9 +80,27 @@ const ItemPage = () => {
         >
           {item.description}
         </Typography>
-      </Box>
-    </Box>
 
+        <Button
+          onClick={() => {
+            setSizeGuideOpen(!sizeGuideOpen);
+          }}
+          endIcon={<StraightenIcon />}
+        >
+          Size guide
+        </Button>
+      </Box>
+
+      <Dialog
+        open={sizeGuideOpen}
+        onClose={() => {
+          setSizeGuideOpen(!sizeGuideOpen);
+        }}
+      >
+        <Box component="img" src="/bike-sizes.jpg" />
+      </Dialog>
+
+    </Box>
   );
 };
 
