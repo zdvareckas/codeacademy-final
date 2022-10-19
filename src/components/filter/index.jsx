@@ -16,8 +16,8 @@ const Filter = ({ handleReset, children }) => {
       <IconButton
         sx={{
           position: 'absolute',
-          right: 35,
-          top: 210,
+          right: { xs: '6%', md: '6%' },
+          top: 15,
         }}
         onClick={handleFilterOpen}
       >
@@ -27,14 +27,19 @@ const Filter = ({ handleReset, children }) => {
       <Drawer
         open={filterOpen}
         variant="persistent"
+        sx={{
+          position: 'relative',
+          display: `${filterOpen ? 'flex' : 'none'}`,
+        }}
         elevation={0}
-        sx={{ position: 'relative' }}
         PaperProps={{
           sx: {
+            position: { lg: 'static' },
+            alignSelf: 'start',
             gap: 5,
-            mt: 8,
             p: 4,
             width: 300,
+            minHeight: '71vh',
           },
         }}
       >

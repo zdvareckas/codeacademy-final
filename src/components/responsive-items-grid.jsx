@@ -8,16 +8,13 @@ const ResponsiveItemsGrid = ({ filtersOpen, children }) => (
       gap: 3,
       placeContent: 'center',
       gridTemplateColumns: {
-        xl: `${filtersOpen ? 'repeat(3, 450px)' : 'repeat(4, 400px)'}`,
-        lg: 'repeat(3, 350px)',
-        md: `${filtersOpen ? 'repeat(2, 350px)' : 'repeat(2, 450px)'}`,
+        xl: `${filtersOpen ? 'repeat(3, 475px)' : 'repeat(3, 550px)'}`,
+        lg: `${filtersOpen ? 'repeat(2, 400px)' : 'repeat(3, 400px)'}`,
+        md: 'repeat(2, 450px)',
         sm: 'repeat(2, 400px)',
-        xs: 'repeat(1, 400px)',
+        xs: 'repeat(1, 450px)',
       },
       transition: 'ease-in',
-      ml: {
-        md: `${filtersOpen ? '300px' : '0px'}`,
-      },
       mt: 5,
       p: 2,
     }}

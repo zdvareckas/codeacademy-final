@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   Box,
   Button,
@@ -6,7 +7,6 @@ import {
   Dialog,
   Typography,
 } from '@mui/material';
-import React from 'react';
 import { useParams } from 'react-router-dom';
 import StraightenIcon from '@mui/icons-material/Straighten';
 import { bikeService } from '../../services/bikes-service';
@@ -28,7 +28,6 @@ const ItemPage = () => {
   return (
     <>
       <Banner />
-
       <Container sx={{
         display: 'flex',
         flexDirection: { xs: 'column', md: 'row' },
@@ -36,7 +35,6 @@ const ItemPage = () => {
         p: 5,
       }}
       >
-
         <ScrollableImageContainer>
           {item.images?.map((image) => (
             <Box component="img" src={image} />
@@ -44,10 +42,7 @@ const ItemPage = () => {
         </ScrollableImageContainer>
 
         <ItemContent>
-          <Typography
-            variant="h4"
-            fontWeight="bold"
-          >
+          <Typography variant="h4" fontWeight="bold">
             {item.title}
           </Typography>
 
@@ -57,10 +52,7 @@ const ItemPage = () => {
             <Chip label={item.type?.label} />
           </Box>
 
-          <Typography
-            variant="h5"
-            color="grey.700"
-          >
+          <Typography variant="h5" color="grey.700">
             {item.price}
           </Typography>
 
@@ -74,21 +66,10 @@ const ItemPage = () => {
             <Button
               variant="outlined"
               size="small"
-              sx={{ color: 'grey.700', borderColor: 'grey.700' }}
-            >
-              {item.size?.label}
-            </Button>
-            <Button
-              variant="outlined"
-              size="small"
-              sx={{ color: 'grey.700', borderColor: 'grey.700' }}
-            >
-              {item.size?.label}
-            </Button>
-            <Button
-              variant="outlined"
-              size="small"
-              sx={{ color: 'grey.700', borderColor: 'grey.700' }}
+              sx={{
+                color: 'grey.700',
+                borderColor: 'grey.700',
+              }}
             >
               {item.size?.label}
             </Button>
@@ -117,13 +98,12 @@ const ItemPage = () => {
             sx={{
               position: 'absolute',
               bottom: 5,
-              width: '100%',
+              width: '96%',
             }}
           >
             ADD TO CART
           </Button>
         </ItemContent>
-
         <Dialog
           open={sizeGuideOpen}
           onClose={() => {

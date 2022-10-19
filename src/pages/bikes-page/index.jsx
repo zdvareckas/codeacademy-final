@@ -23,29 +23,38 @@ const BikesPage = () => {
   return (
     <Box
       sx={{
-        position: 'relative',
         display: 'flex',
         justifyContent: 'center',
         flexDirection: 'column',
       }}
     >
       <Banner />
+      <Box sx={{
+        position: 'relative',
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: {
+          xs: `${filterOpen ? 'center' : 'center'}`,
+          lg: `${filterOpen ? 'start' : 'center'}`,
+        },
+      }}
+      >
+        <BikesFilter />
+        <ResponsiveItemsGrid filtersOpen={filterOpen}>
+          {bikes.map(({
+            id, title, price, images,
+          }) => (
+            <ShopItem
+              key={id}
+              id={id}
+              title={title}
+              images={images}
+              price={price}
+            />
+          ))}
 
-      <BikesFilter />
-      <ResponsiveItemsGrid filtersOpen={filterOpen}>
-        {bikes.map(({
-          id, title, price, images,
-        }) => (
-          <ShopItem
-            key={id}
-            id={id}
-            title={title}
-            images={images}
-            price={price}
-          />
-        ))}
-
-      </ResponsiveItemsGrid>
+        </ResponsiveItemsGrid>
+      </Box>
 
     </Box>
   );
