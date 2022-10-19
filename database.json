@@ -61,6 +61,80 @@
       "sizeId": 3
     }
   ],
+  "equipment": [
+    {
+      "id": 1,
+      "title": "Gambit",
+      "price": "$ 360",
+      "images": [
+        "https://assets.specialized.com/i/specialized/60222-100_HLMT_GAMBIT-HLMT-CE-BLK-M_HERO?bg=rgb(241,241,241)&w=1600&h=900&fmt=auto",
+        "https://assets.specialized.com/i/specialized/60222-100_HLMT_GAMBIT-HLMT-CE-BLK-M_PROFILE?bg=rgb(241,241,241)&w=1600&h=900&fmt=auto",
+        "https://assets.specialized.com/i/specialized/60222-100_HLMT_GAMBIT-HLMT-CE-BLK-M_FRONT?bg=rgb(241,241,241)&w=1600&h=900&fmt=auto"
+      ],
+      "categoryId": 2,
+      "sizeId": 3
+    },
+    {
+      "id": 2,
+      "title": "S-Works Prevail",
+      "price": "$ 300",
+      "images": [
+        "https://assets.specialized.com/i/specialized/60919-002_HLMT_SW-PREVAIL-II-HLMT-ANGI-MIPS-CPSC-BLK-M_HERO?bg=rgb(241,241,241)&w=1600&h=900&fmt=auto",
+        "https://assets.specialized.com/i/specialized/60919-002_HLMT_SW-PREVAIL-II-HLMT-ANGI-MIPS-CPSC-BLK-M_REAR?bg=rgb(241,241,241)&w=1600&h=900&fmt=auto",
+        "https://assets.specialized.com/i/specialized/60919-002_HLMT_SW-PREVAIL-II-HLMT-ANGI-MIPS-CPSC-BLK-M_REAR-3-4?bg=rgb(241,241,241)&w=1600&h=900&fmt=auto"
+      ],
+      "categoryId": 2,
+      "sizeId": 2
+    },
+    {
+      "id": 3,
+      "title": "Ambush",
+      "price": "$ 150",
+      "images": [
+        "https://assets.specialized.com/i/specialized/60219-034_HLMT_AMBUSH-HLMT-ANGI-MIPS-CPSC-BLK-M_HERO?bg=rgb(241,241,241)&w=1600&h=900&fmt=auto",
+        "https://assets.specialized.com/i/specialized/60219-034_HLMT_AMBUSH-HLMT-ANGI-MIPS-CPSC-BLK-M_REAR?bg=rgb(241,241,241)&w=1600&h=900&fmt=auto",
+        "https://assets.specialized.com/i/specialized/60219-034_HLMT_AMBUSH-HLMT-ANGI-MIPS-CPSC-BLK-M_REAR-3-4?bg=rgb(241,241,241)&w=1600&h=900&fmt=auto"
+      ],
+      "categoryId": 2,
+      "sizeId": 2
+    },
+    {
+      "id": 4,
+      "title": "2FO DH Clip Mountain Bike Shoes",
+      "price": "$ 130",
+      "images": [
+        "https://www.specialized.com/lt/en/2fo-cliplite-mountain-bike-shoes/p/203138?color=332914-203138",
+        "https://assets.specialized.com/i/specialized/61622-404_SHOE_2FO-CLIPLITE-MTB-SHOE-OAKGRN-44_PAIR?bg=rgb(241,241,241)&w=1600&h=900&fmt=auto",
+        "https://assets.specialized.com/i/specialized/61622-404_SHOE_2FO-CLIPLITE-MTB-SHOE-OAKGRN-44_MEDIAL?bg=rgb(241,241,241)&w=1600&h=900&fmt=auto"
+      ],
+      "categoryId": 1,
+      "sizeId": 5
+    },
+    {
+      "id": 5,
+      "title": "Recon 2.0 Mountain Bike Shoes",
+      "price": "$ 50",
+      "images": [
+        "https://assets.specialized.com/i/specialized/61520-104_SHOE_RECON-20-MTB-SHOE-BLK-42_HERO?bg=rgb(241,241,241)&w=1600&h=900&fmt=auto",
+        "https://assets.specialized.com/i/specialized/61520-104_SHOE_RECON-20-MTB-SHOE-BLK-42_PAIR?bg=rgb(241,241,241)&w=1600&h=900&fmt=auto",
+        "https://assets.specialized.com/i/specialized/61520-104_SHOE_RECON-20-MTB-SHOE-BLK-42_MEDIAL?bg=rgb(241,241,241)&w=1600&h=900&fmt=auto"
+      ],
+      "categoryId": 1,
+      "sizeId": 5
+    },
+    {
+      "id": 6,
+      "title": "2FO ClipLite Mountain Bike Shoes",
+      "price": "$ 120",
+      "images": [
+        "https://assets.specialized.com/i/specialized/61621-034_SHOE_2FO-DH-CLIP-MTB-SHOE-CLGRY-44_HERO?bg=rgb(241,241,241)&w=1600&h=900&fmt=auto",
+        "https://assets.specialized.com/i/specialized/61621-034_SHOE_2FO-DH-CLIP-MTB-SHOE-CLGRY-44_PAIR?bg=rgb(241,241,241)&w=1600&h=900&fmt=auto",
+        "https://assets.specialized.com/i/specialized/61621-034_SHOE_2FO-DH-CLIP-MTB-SHOE-CLGRY-44_MEDIAL?bg=rgb(241,241,241)&w=1600&h=900&fmt=auto"
+      ],
+      "categoryId": 1,
+      "sizeId": 5
+    }
+  ],
   "suspensions": [
     {
       "id": 1,
@@ -111,6 +185,16 @@
     {
       "id": 4,
       "label": "XL"
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "title": "Shoes"
+    },
+    {
+      "id": 2,
+      "title": "Helmets"
     }
   ]
 }
