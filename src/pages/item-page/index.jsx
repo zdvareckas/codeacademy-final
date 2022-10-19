@@ -33,8 +33,8 @@ const ItemPage = () => {
       >
 
         <ScrollableImageContainer>
-          {item.images?.map((x) => (
-            <Box component="img" src={x} />
+          {item.images?.map((image) => (
+            <Box component="img" src={image} />
           ))}
         </ScrollableImageContainer>
 
