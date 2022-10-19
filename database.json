@@ -26,9 +26,9 @@
       ],
       "price": "$ 14,000",
       "suspensionId": 2,
-      "typeId": 2,
+      "typeId": 1,
       "materialId": 2,
-      "sizeId": 2
+      "sizeId": 1
     },
     {
       "id": 3,
@@ -64,15 +64,15 @@
   "suspensions": [
     {
       "id": 1,
-      "label": "Front and Back"
+      "label": "Full-Suspension"
     },
     {
       "id": 2,
-      "label": "Front"
+      "label": "Front-Suspension"
     },
     {
       "id": 3,
-      "label": "None"
+      "label": "No-Suspension"
     }
   ],
   "types": [
