@@ -103,7 +103,7 @@
       "title": "2FO DH Clip Mountain Bike Shoes",
       "price": "$ 130",
       "images": [
-        "https://www.specialized.com/lt/en/2fo-cliplite-mountain-bike-shoes/p/203138?color=332914-203138",
+        "https://assets.specialized.com/i/specialized/61622-404_SHOE_2FO-CLIPLITE-MTB-SHOE-OAKGRN-44_HERO?bg=rgb(241,241,241)&w=1600&h=900&fmt=auto",
         "https://assets.specialized.com/i/specialized/61622-404_SHOE_2FO-CLIPLITE-MTB-SHOE-OAKGRN-44_PAIR?bg=rgb(241,241,241)&w=1600&h=900&fmt=auto",
         "https://assets.specialized.com/i/specialized/61622-404_SHOE_2FO-CLIPLITE-MTB-SHOE-OAKGRN-44_MEDIAL?bg=rgb(241,241,241)&w=1600&h=900&fmt=auto"
       ],
@@ -190,11 +190,11 @@
   "categories": [
     {
       "id": 1,
-      "title": "Shoes"
+      "label": "Shoes"
     },
     {
       "id": 2,
-      "title": "Helmets"
+      "label": "Helmets"
     }
   ]
 }
