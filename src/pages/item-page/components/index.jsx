@@ -5,12 +5,16 @@ export const ScrollableImageContainer = styled(Box)(({ theme }) => ({
   flexDirection: 'column',
   gap: theme.spacing(1),
   [theme.breakpoints.up('xs')]: {
-    maxHeight: theme.spacing(30),
+    maxHeight: theme.spacing(34),
+    flexGrow: 2,
+  },
+  [theme.breakpoints.up('xs')]: {
+    maxHeight: theme.spacing(50),
     flexGrow: 2,
   },
   [theme.breakpoints.up('md')]: {
-    maxHeight: theme.spacing(64),
-    width: '50%',
+    maxHeight: theme.spacing(65),
+    flexGrow: 2,
   },
   overflow: 'auto',
   '&::-webkit-scrollbar': { width: 0 },
