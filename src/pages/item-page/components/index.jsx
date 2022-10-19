@@ -6,7 +6,7 @@ export const ScrollableImageContainer = styled(Box)(({ theme }) => ({
   gap: theme.spacing(1),
   [theme.breakpoints.up('xs')]: {
     maxHeight: theme.spacing(30),
-    width: '100%',
+    flexGrow: 2,
   },
   [theme.breakpoints.up('md')]: {
     maxHeight: theme.spacing(64),

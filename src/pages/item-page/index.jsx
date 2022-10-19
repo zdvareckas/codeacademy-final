@@ -1,5 +1,5 @@
 import {
-  Box, Button, Dialog, Typography,
+  Box, Button, Container, Dialog, Paper, Typography,
 } from '@mui/material';
 import React from 'react';
 import { useParams } from 'react-router-dom';
@@ -24,18 +24,15 @@ const ItemPage = () => {
     <>
       <Banner />
 
-      <Box sx={{
+      <Container sx={{
         display: 'flex',
-        justifyContent: 'center',
-        gap: 5,
         flexDirection: { xs: 'column', md: 'row' },
-        mx: { xs: 5, md: 10 },
-        p: 1,
+        gap: 2,
+        p: 5,
       }}
       >
 
         <ScrollableImageContainer>
-
           <Box
             component="img"
             src={item.img}
@@ -48,27 +45,55 @@ const ItemPage = () => {
             component="img"
             src={item.img}
           />
-
         </ScrollableImageContainer>
 
-        <Box sx={{
+        <Paper sx={{
           display: 'flex',
           flexDirection: 'column',
-          alignItems: 'start',
           width: { xs: '100%', md: '40%' },
+          p: 1,
           gap: 2,
         }}
         >
-
-          <Typography variant="h3">
+          <Typography
+            variant="h4"
+            fontWeight="bold"
+          >
             {item.title}
           </Typography>
 
-          <Typography variant="h5">{item.price}</Typography>
+          <Typography
+            variant="h5"
+            color="grey.700"
+          >
+            {item.price}
+          </Typography>
 
           <Typography variant="h6">Select size:</Typography>
-          <Box sx={{ display: 'flex', gap: 1 }}>
-            <Button variant="outlined">{item.size?.label}</Button>
+          <Box sx={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(3, 100px)',
+            gap: 1,
+          }}
+          >
+            <Button
+              variant="outlined"
+              sx={{ color: 'grey.700', borderColor: 'grey.700' }}
+            >
+              {item.size?.label}
+            </Button>
+            <Button
+              variant="outlined"
+              sx={{ color: 'grey.700', borderColor: 'grey.700' }}
+            >
+              {item.size?.label}
+            </Button>
+            <Button
+              variant="outlined"
+              sx={{ color: 'grey.700', borderColor: 'grey.700' }}
+            >
+              {item.size?.label}
+            </Button>
           </Box>
 
           <Typography
@@ -79,6 +104,7 @@ const ItemPage = () => {
           </Typography>
 
           <Button
+            sx={{ alignSelf: 'start' }}
             onClick={() => {
               setSizeGuideOpen(!sizeGuideOpen);
             }}
@@ -86,7 +112,15 @@ const ItemPage = () => {
           >
             Size guide
           </Button>
-        </Box>
+
+          <Button
+            variant="contained"
+            color="success"
+            sx={{ mt: 9 }}
+          >
+            ADD TO CART
+          </Button>
+        </Paper>
 
         <Dialog
           open={sizeGuideOpen}
@@ -97,9 +131,8 @@ const ItemPage = () => {
           <Box component="img" src="/bike-sizes.jpg" />
         </Dialog>
 
-      </Box>
+      </Container>
     </>
-
   );
 };
 
