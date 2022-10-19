@@ -2,7 +2,7 @@ import React from 'react';
 import { Box } from '@mui/material';
 import { useSearchParams } from 'react-router-dom';
 import Banner from '../../components/banner';
-import { equiptmentService } from '../../services/equiptment-serveice';
+import { equiptmentService } from '../../services/equiptment-service';
 
 const EquipmentsPage = () => {
   const [equiptment, setEquipment] = React.useState([]);
