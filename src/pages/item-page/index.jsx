@@ -33,18 +33,9 @@ const ItemPage = () => {
       >
 
         <ScrollableImageContainer>
-          <Box
-            component="img"
-            src={item.img}
-          />
-          <Box
-            component="img"
-            src={item.img}
-          />
-          <Box
-            component="img"
-            src={item.img}
-          />
+          {item.images?.map((x) => (
+            <Box component="img" src={x} />
+          ))}
         </ScrollableImageContainer>
 
         <Paper sx={{
@@ -130,7 +121,6 @@ const ItemPage = () => {
         >
           <Box component="img" src="/bike-sizes.jpg" />
         </Dialog>
-
       </Container>
     </>
   );

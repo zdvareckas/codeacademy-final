@@ -4,7 +4,11 @@
       "id": 1,
       "title": "S-Works Turbo Levo",
       "description": "The all-new Levo delivers the unbelievable power to ride more trails through an unequaled combination of ride quality, usable power, and ride anywhere range. ",
-      "img": "https://assets.specialized.com/i/specialized/95221-06_LEVO-SW-CARBON-METWHTSIL-CHRM-DRMSIL_HERO?bg=rgb(241,241,241)&w=2500&h=1406&fmt=auto",
+      "images": [
+        "https://assets.specialized.com/i/specialized/95221-06_LEVO-SW-CARBON-METWHTSIL-CHRM-DRMSIL_HERO?bg=rgb(241,241,241)&w=2500&h=1406&fmt=auto",
+        "https://assets.specialized.com/i/specialized/95221-06_LEVO-SW-CARBON-METWHTSIL-CHRM-DRMSIL_FDSQ?bg=rgb(241,241,241)&w=1600&h=900&fmt=auto",
+        "https://assets.specialized.com/i/specialized/95221-06_LEVO-SW-CARBON-METWHTSIL-CHRM-DRMSIL_RDSQ?bg=rgb(241,241,241)&w=1600&h=900&fmt=auto"
+      ],
       "price": "$ 13,000",
       "suspensionId": 1,
       "typeId": 1,
@@ -15,7 +19,11 @@
       "id": 2,
       "title": "S-Works Turbo Kenevo SL",
       "description": "Power up to trail riding’s next level and dominate any and all trail monsters—the Turbo Kenevo Super Light melds the legendary handling and all-around big trail prowess of the Enduro with our Super Light electric support. ",
-      "img": "https://assets.specialized.com/i/specialized/98021-01_KENEVO-SL-SW-CARBON-29-CARB-BLK-DRMSIL_HERO?bg=rgb(241,241,241)&w=1600&h=900&fmt=auto",
+      "images": [
+        "https://assets.specialized.com/i/specialized/98021-00_KENEVO-SL-SW-CARBON-29-OAKGRNMET-BLK_HERO?bg=rgb(241,241,241)&w=1600&h=900&fmt=auto",
+        "https://assets.specialized.com/i/specialized/98021-00_KENEVO-SL-SW-CARBON-29-OAKGRNMET-BLK_FDSQ?bg=rgb(241,241,241)&w=1600&h=900&fmt=auto",
+        "https://assets.specialized.com/i/specialized/98021-00_KENEVO-SL-SW-CARBON-29-OAKGRNMET-BLK_FDSQ?bg=rgb(241,241,241)&w=1600&h=900&fmt=auto"
+      ],
       "price": "$ 14,000",
       "suspensionId": 2,
       "typeId": 2,
@@ -26,7 +34,11 @@
       "id": 3,
       "title": "S-Works Epic EVO",
       "description": "You know what they say—when the grams go away, speed comes out to play. Benefitting from the lightest EVO frame we’ve ever created and the most aggressive iteration of our Progressive XC Geometry to date. ",
-      "img": "https://assets.specialized.com/i/specialized/94823-00_EPIC-EVO-SW-BLUGSTPRL-BLKCP-GLDGSTPRL_HERO?bg=rgb(241,241,241)&w=1600&h=900&fmt=auto",
+      "images": [
+        "https://assets.specialized.com/i/specialized/94823-00_EPIC-EVO-SW-BLUGSTPRL-BLKCP-GLDGSTPRL_HERO?bg=rgb(241,241,241)&w=1600&h=900&fmt=auto",
+        "https://assets.specialized.com/i/specialized/94823-00_EPIC-EVO-SW-BLUGSTPRL-BLKCP-GLDGSTPRL_FDSQ?bg=rgb(241,241,241)&w=1600&h=900&fmt=auto",
+        "https://assets.specialized.com/i/specialized/94823-00_EPIC-EVO-SW-BLUGSTPRL-BLKCP-GLDGSTPRL_RDSQ?bg=rgb(241,241,241)&w=1600&h=900&fmt=auto"
+      ],
       "price": "$ 11,000",
       "suspensionId": 1,
       "typeId": 2,
@@ -35,14 +47,18 @@
     },
     {
       "id": 4,
-      "title": "S-Works Epic EVO",
-      "description": "You know what they say—when the grams go away, speed comes out to play. Benefitting from the lightest EVO frame we’ve ever created and the most aggressive iteration of our Progressive XC Geometry to date. ",
-      "img": "https://assets.specialized.com/i/specialized/94823-00_EPIC-EVO-SW-BLUGSTPRL-BLKCP-GLDGSTPRL_HERO?bg=rgb(241,241,241)&w=1600&h=900&fmt=auto",
+      "title": "Epic Hardtail Expert",
+      "description": "Go ahead, try and find something that’ll put a bigger smile on your face than absolutely smashing the perfect line on a fast, capable hardtail. The Epic Hardtail Expert exists to make that smile even bigger.",
+      "images": [
+        "https://assets.specialized.com/i/specialized/91321-310_BIK_EPIC-HT-EXPERT-REDTNT-WHT-GLDGSTPRL_HERO?bg=rgb(241,241,241)&w=1600&h=900&fmt=auto",
+        "https://assets.specialized.com/i/specialized/91321-31_EPIC-HT-EXPERT-REDTNT-WHT-GLDGSTPRL_FDSQ?bg=rgb(241,241,241)&w=1600&h=900&fmt=auto",
+        "https://assets.specialized.com/i/specialized/91321-31_EPIC-HT-EXPERT-REDTNT-WHT-GLDGSTPRL_RDSQ?bg=rgb(241,241,241)&w=1600&h=900&fmt=auto"
+      ],
       "price": "$ 12,000",
       "suspensionId": 2,
       "typeId": 2,
       "materialId": 1,
-      "sizeId": 4
+      "sizeId": 3
     }
   ],
   "suspensions": [
