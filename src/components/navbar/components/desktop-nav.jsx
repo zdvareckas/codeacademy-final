@@ -9,11 +9,12 @@ import MenuIcon from '@mui/icons-material/Menu';
 import DirectionsBikeIcon from '@mui/icons-material/DirectionsBike';
 import PersonIcon from '@mui/icons-material/Person';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import * as Nav from '.';
 
 const DesktopNav = ({ handleDrawerToggle, pages }) => {
   const location = useLocation();
+  const navigate = useNavigate();
   const homePage = location.pathname === '/';
 
   return (
@@ -57,7 +58,10 @@ const DesktopNav = ({ handleDrawerToggle, pages }) => {
           <IconButton sx={{ color: 'inherit' }}>
             <PersonIcon />
           </IconButton>
-          <IconButton sx={{ color: 'inherit' }}>
+          <IconButton
+            onClick={() => navigate('/cart')}
+            sx={{ color: 'inherit' }}
+          >
             <ShoppingCartIcon />
           </IconButton>
         </Box>
