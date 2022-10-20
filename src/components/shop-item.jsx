@@ -45,6 +45,7 @@ const ShopItem = ({
           fontWeight="bold"
           color="grey.400"
         >
+          $
           {price}
         </Typography>
       </Box>

@@ -37,6 +37,7 @@ const EquipmentPage = () => {
           {equipment.images?.map((image) => (
             <Box
               component="img"
+              key={image}
               src={image}
             />
           ))}
@@ -48,6 +49,7 @@ const EquipmentPage = () => {
           </Typography>
 
           <Typography variant="h5" color="grey.700">
+            $
             {equipment.price}
           </Typography>
 

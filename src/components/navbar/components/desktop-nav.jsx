@@ -73,10 +73,8 @@ const DesktopNav = ({ handleDrawerToggle, pages }) => {
             position: 'absolute',
             top: 10,
             right: 20,
-            backgroundColor: 'primary.dark',
-            borderRadius: 100,
-            px: 1,
             fontSize: 12,
+            backgroundColor: 'inherit',
           }}
           >
             {cart.length}
