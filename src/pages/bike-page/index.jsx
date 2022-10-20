@@ -13,17 +13,17 @@ import { ItemContent, ScrollableImageContainer } from './components';
 import { bikesService } from '../../services/bikes-service';
 import Banner from '../../components/banner';
 
-const ItemPage = () => {
-  const { itemId } = useParams();
-  const [item, setItem] = React.useState([]);
+const BikePage = () => {
+  const { bikeId } = useParams();
+  const [bike, setBike] = React.useState([]);
   const [sizeGuideOpen, setSizeGuideOpen] = React.useState(false);
 
   React.useEffect(() => {
     (async () => {
-      const data = await bikesService.fetchById(itemId);
-      setItem(data);
+      const data = await bikesService.fetchById(bikeId);
+      setBike(data);
     })();
-  }, [itemId]);
+  }, [bikeId]);
 
   return (
     <>
@@ -36,24 +36,27 @@ const ItemPage = () => {
       }}
       >
         <ScrollableImageContainer>
-          {item.images?.map((image) => (
-            <Box component="img" src={image} />
+          {bike.images?.map((image) => (
+            <Box
+              component="img"
+              src={image}
+            />
           ))}
         </ScrollableImageContainer>
 
         <ItemContent>
           <Typography variant="h4" fontWeight="bold">
-            {item.title}
+            {bike.title}
           </Typography>
 
           <Box sx={{ display: 'flex', gap: 1 }}>
-            <Chip label={item.material?.label} />
-            <Chip label={item.suspension?.label} />
-            <Chip label={item.type?.label} />
+            <Chip label={bike.material?.label} />
+            <Chip label={bike.suspension?.label} />
+            <Chip label={bike.type?.label} />
           </Box>
 
           <Typography variant="h5" color="grey.700">
-            {item.price}
+            {bike.price}
           </Typography>
 
           <Typography variant="h6">Available Sizes:</Typography>
@@ -71,7 +74,7 @@ const ItemPage = () => {
                 borderColor: 'grey.700',
               }}
             >
-              {item.size?.label}
+              {bike.size?.label}
             </Button>
           </Box>
 
@@ -79,7 +82,7 @@ const ItemPage = () => {
             variant="body2"
             sx={{ width: { xs: '100%', md: '60%' } }}
           >
-            {item.description}
+            {bike.description}
           </Typography>
 
           <Button
@@ -117,4 +120,4 @@ const ItemPage = () => {
   );
 };
 
-export default ItemPage;
+export default BikePage;

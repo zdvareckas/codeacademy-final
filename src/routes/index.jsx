@@ -6,14 +6,14 @@ import CartPage from '../pages/cart-page';
 import ContactsPage from '../pages/contacts-page';
 import EquipmentsPage from '../pages/equipments-page';
 import HomePage from '../pages/home-page';
-import ItemPage from '../pages/item-page';
+import BikePage from '../pages/bike-page';
 
 const PageRoutes = () => (
   <Routes>
     <Route path="/" element={<MainLayout />}>
       <Route index element={<HomePage />} />
       <Route path="bikes" element={<BikesPage />} />
-      <Route path="item/:itemId" element={<ItemPage />} />
+      <Route path="bike/:bikeId" element={<BikePage />} />
       <Route path="contacts" element={<ContactsPage />} />
       <Route path="equipment" element={<EquipmentsPage />} />
       <Route path="cart" element={<CartPage />} />
