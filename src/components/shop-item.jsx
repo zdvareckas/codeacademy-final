@@ -8,7 +8,7 @@ import {
 import { useNavigate } from 'react-router-dom';
 
 const ShopItem = ({
-  id, title, images, price,
+  id, title, images, price, itemType,
 }) => {
   const navigate = useNavigate();
 
@@ -51,7 +51,7 @@ const ShopItem = ({
       <Button
         fullWidth
         sx={{ color: 'grey.700', fontWeight: 'bold' }}
-        onClick={() => navigate(`/item/${id}`)}
+        onClick={() => navigate(`/${itemType}/${id}`)}
       >
         Preview
       </Button>

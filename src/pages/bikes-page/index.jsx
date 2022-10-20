@@ -50,6 +50,7 @@ const BikesPage = () => {
               title={title}
               images={images}
               price={price}
+              itemType="bike"
             />
           ))}
 
