@@ -9,7 +9,7 @@ import {
 } from '@mui/material';
 import { useParams } from 'react-router-dom';
 import StraightenIcon from '@mui/icons-material/Straighten';
-import { ItemContent, ScrollableImageContainer } from './components';
+import { ItemContent, ScrollableImageContainer } from '../../components';
 import { bikesService } from '../../services/bikes-service';
 import Banner from '../../components/banner';
 
