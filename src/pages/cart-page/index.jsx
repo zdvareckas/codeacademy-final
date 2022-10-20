@@ -15,7 +15,7 @@ import UserCartContext from '../../contexts/cart-context';
 
 const CartPage = () => {
   const [amount, setAmount] = React.useState(1);
-  const { cart } = React.useContext(UserCartContext);
+  const { cart, removeFromCart } = React.useContext(UserCartContext);
 
   console.log(cart);
   const handleAmountInc = () => {
@@ -82,7 +82,19 @@ const CartPage = () => {
                 $
                 {(Number(x.item.price) * x.amount).toFixed(2)}
               </Typography>
-              <IconButton sx={{ position: 'absolute', bottom: 0, right: 0 }}><DeleteIcon /></IconButton>
+              <IconButton
+                sx={{
+                  position: 'absolute',
+                  bottom: 0,
+                  right: 0,
+                }}
+                onClick={() => {
+                  removeFromCart(x.id);
+                }}
+              >
+                <DeleteIcon />
+
+              </IconButton>
             </Box>
           </CartItem>
         ))}
