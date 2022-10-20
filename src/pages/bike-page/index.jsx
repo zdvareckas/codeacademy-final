@@ -12,11 +12,13 @@ import StraightenIcon from '@mui/icons-material/Straighten';
 import { ItemContent, ScrollableImageContainer } from '../../components';
 import { bikesService } from '../../services/bikes-service';
 import Banner from '../../components/banner';
+import UserCartContext from '../../contexts/cart-context';
 
 const BikePage = () => {
   const { bikeId } = useParams();
   const [bike, setBike] = React.useState([]);
   const [sizeGuideOpen, setSizeGuideOpen] = React.useState(false);
+  const { addToCart } = React.useContext(UserCartContext);
 
   React.useEffect(() => {
     (async () => {
@@ -103,10 +105,14 @@ const BikePage = () => {
               bottom: 5,
               width: '96%',
             }}
+            onClick={() => {
+              addToCart(bike);
+            }}
           >
             ADD TO CART
           </Button>
         </ItemContent>
+
         <Dialog
           open={sizeGuideOpen}
           onClose={() => {
