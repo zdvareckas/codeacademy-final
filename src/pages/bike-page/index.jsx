@@ -110,7 +110,7 @@ const BikePage = () => {
             onClick={() => {
               addToCart(bike);
             }}
-            disabled={Boolean(cart.find((x) => x.item.id === bike.id))}
+            disabled={Boolean(cart.find((x) => x.id === bike.id))}
           >
             ADD TO CART
           </Button>

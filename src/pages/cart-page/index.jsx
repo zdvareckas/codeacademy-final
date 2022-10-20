@@ -14,15 +14,8 @@ import { CartItem, CartItemDesc, CartImage } from './components';
 import UserCartContext from '../../contexts/cart-context';
 
 const CartPage = () => {
+  const { cart, removeFromCart, updateCartItemCount } = React.useContext(UserCartContext);
   const [amount, setAmount] = React.useState(1);
-  const { cart, removeFromCart } = React.useContext(UserCartContext);
-
-  const handleAmountInc = () => {
-    setAmount(amount + 1);
-  };
-  const handleAmountDec = () => {
-    setAmount(amount - 1);
-  };
 
   return (
     <Container sx={{
@@ -37,9 +30,8 @@ const CartPage = () => {
         <Divider />
         {cart.map((x) => (
           <CartItem key={x.id}>
-
             <Box sx={{ display: 'flex', py: 2, gap: 2 }}>
-              <CartImage image={x.item?.images} />
+              <CartImage image={x?.images} />
               <Box sx={{
                 display: 'flex',
                 flexDirection: 'column',
@@ -47,9 +39,9 @@ const CartPage = () => {
               }}
               >
                 <CartItemDesc
-                  title={x.item?.title}
-                  price={x.item?.price}
-                  size={x.item?.size?.label}
+                  title={x?.title}
+                  price={x?.price}
+                  size={x?.size?.label}
                 />
 
                 <Box sx={{
@@ -59,11 +51,22 @@ const CartPage = () => {
                   borderRadius: 50,
                 }}
                 >
-                  <IconButton onClick={handleAmountInc}><AddIcon /></IconButton>
+                  <IconButton
+                    onClick={() => {
+                      setAmount(amount + 1);
+                      updateCartItemCount({ item: x, amount });
+                    }}
+                  >
+                    <AddIcon />
+
+                  </IconButton>
                   <Typography>{x.amount}</Typography>
                   <IconButton
-                    onClick={handleAmountDec}
-                    disabled={amount === 0}
+                    onClick={() => {
+                      setAmount(amount - 1);
+                      updateCartItemCount({ item: x, amount });
+                    }}
+                    disabled={x.amount === 0}
                   >
                     <RemoveIcon />
                   </IconButton>
@@ -79,7 +82,7 @@ const CartPage = () => {
             >
               <Typography>
                 $
-                {(Number(x.item.price) * x.amount).toFixed(2)}
+                {(Number(x.price) * x.amount).toFixed(2)}
               </Typography>
               <IconButton
                 sx={{
@@ -88,7 +91,7 @@ const CartPage = () => {
                   right: 0,
                 }}
                 onClick={() => {
-                  removeFromCart(x.item.id);
+                  removeFromCart(x.id);
                 }}
               >
                 <DeleteIcon />
@@ -98,7 +101,6 @@ const CartPage = () => {
           </CartItem>
         ))}
 
-        <Divider />
       </Paper>
     </Container>
   );

@@ -90,7 +90,7 @@ const EquipmentPage = () => {
             onClick={() => {
               addToCart(equipment);
             }}
-            disabled={Boolean(cart.find((x) => x.item.id === equipment.id))}
+            disabled={Boolean(cart.find((x) => x.id === equipment.id))}
           >
             ADD TO CART
           </Button>

@@ -9,12 +9,18 @@ export const CartContext = ({ children }) => {
     cart,
 
     addToCart: (item) => {
-      setCart([...cart, { item, amount: 1 }]);
+      setCart([...cart, { ...item, amount: 0 }]);
       console.log(cart);
     },
 
     removeFromCart: (id) => {
-      setCart(cart.filter((x) => (x.item.id !== id)));
+      setCart(cart.filter((x) => (x.id !== id)));
+    },
+
+    updateCartItemCount: ({ item, amount }) => {
+      setCart(
+        cart.map((x) => (x.id === item.id ? { ...item, amount } : x)),
+      );
     },
 
   }), [cart, setCart]);
