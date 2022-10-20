@@ -9,10 +9,12 @@ import { useParams } from 'react-router-dom';
 import { ItemContent, ScrollableImageContainer } from '../../components';
 import Banner from '../../components/banner';
 import { equiptmentService } from '../../services/equiptment-service';
+import UserCartContext from '../../contexts/cart-context';
 
 const EquipmentPage = () => {
   const { equipmentId } = useParams();
   const [equipment, setEquipment] = React.useState([]);
+  const { addToCart } = React.useContext(UserCartContext);
 
   React.useEffect(() => {
     (async () => {
@@ -82,6 +84,9 @@ const EquipmentPage = () => {
               position: 'absolute',
               bottom: 5,
               width: '96%',
+            }}
+            onClick={() => {
+              addToCart(equipment);
             }}
           >
             ADD TO CART

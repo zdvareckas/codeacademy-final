@@ -9,7 +9,7 @@
         "https://assets.specialized.com/i/specialized/95221-06_LEVO-SW-CARBON-METWHTSIL-CHRM-DRMSIL_FDSQ?bg=rgb(241,241,241)&w=1600&h=900&fmt=auto",
         "https://assets.specialized.com/i/specialized/95221-06_LEVO-SW-CARBON-METWHTSIL-CHRM-DRMSIL_RDSQ?bg=rgb(241,241,241)&w=1600&h=900&fmt=auto"
       ],
-      "price": "$ 13,000",
+      "price": 13000,
       "suspensionId": 1,
       "typeId": 1,
       "materialId": 1,
@@ -24,7 +24,7 @@
         "https://assets.specialized.com/i/specialized/98021-00_KENEVO-SL-SW-CARBON-29-OAKGRNMET-BLK_FDSQ?bg=rgb(241,241,241)&w=1600&h=900&fmt=auto",
         "https://assets.specialized.com/i/specialized/98021-00_KENEVO-SL-SW-CARBON-29-OAKGRNMET-BLK_FDSQ?bg=rgb(241,241,241)&w=1600&h=900&fmt=auto"
       ],
-      "price": "$ 14,000",
+      "price": 14000,
       "suspensionId": 2,
       "typeId": 1,
       "materialId": 2,
@@ -39,7 +39,7 @@
         "https://assets.specialized.com/i/specialized/94823-00_EPIC-EVO-SW-BLUGSTPRL-BLKCP-GLDGSTPRL_FDSQ?bg=rgb(241,241,241)&w=1600&h=900&fmt=auto",
         "https://assets.specialized.com/i/specialized/94823-00_EPIC-EVO-SW-BLUGSTPRL-BLKCP-GLDGSTPRL_RDSQ?bg=rgb(241,241,241)&w=1600&h=900&fmt=auto"
       ],
-      "price": "$ 11,000",
+      "price": 11000,
       "suspensionId": 1,
       "typeId": 2,
       "materialId": 1,
@@ -54,7 +54,7 @@
         "https://assets.specialized.com/i/specialized/91321-31_EPIC-HT-EXPERT-REDTNT-WHT-GLDGSTPRL_FDSQ?bg=rgb(241,241,241)&w=1600&h=900&fmt=auto",
         "https://assets.specialized.com/i/specialized/91321-31_EPIC-HT-EXPERT-REDTNT-WHT-GLDGSTPRL_RDSQ?bg=rgb(241,241,241)&w=1600&h=900&fmt=auto"
       ],
-      "price": "$ 12,000",
+      "price": 12000,
       "suspensionId": 2,
       "typeId": 2,
       "materialId": 1,
@@ -66,7 +66,7 @@
       "id": 5,
       "title": "Gambit",
       "description": "When ripping down the trail, the last thing you need to worry about is if your helmet will protect you in a crash. Then again, you don't want to be stuck wearing a full-face on every trail ride.",
-      "price": "$ 360",
+      "price": 360,
       "images": [
         "https://assets.specialized.com/i/specialized/60222-100_HLMT_GAMBIT-HLMT-CE-BLK-M_HERO?bg=rgb(241,241,241)&w=1600&h=900&fmt=auto",
         "https://assets.specialized.com/i/specialized/60222-100_HLMT_GAMBIT-HLMT-CE-BLK-M_PROFILE?bg=rgb(241,241,241)&w=1600&h=900&fmt=auto",
@@ -79,7 +79,7 @@
       "id": 6,
       "title": "S-Works Prevail",
       "description": "When ripping down the trail, the last thing you need to worry about is if your helmet will protect you in a crash. Then again, you don't want to be stuck wearing a full-face on every trail ride.",
-      "price": "$ 300",
+      "price": 300,
       "images": [
         "https://assets.specialized.com/i/specialized/60919-002_HLMT_SW-PREVAIL-II-HLMT-ANGI-MIPS-CPSC-BLK-M_HERO?bg=rgb(241,241,241)&w=1600&h=900&fmt=auto",
         "https://assets.specialized.com/i/specialized/60919-002_HLMT_SW-PREVAIL-II-HLMT-ANGI-MIPS-CPSC-BLK-M_REAR?bg=rgb(241,241,241)&w=1600&h=900&fmt=auto",
@@ -92,7 +92,7 @@
       "id": 7,
       "title": "Ambush",
       "description": "When ripping down the trail, the last thing you need to worry about is if your helmet will protect you in a crash. Then again, you don't want to be stuck wearing a full-face on every trail ride.",
-      "price": "$ 150",
+      "price": 150,
       "images": [
         "https://assets.specialized.com/i/specialized/60219-034_HLMT_AMBUSH-HLMT-ANGI-MIPS-CPSC-BLK-M_HERO?bg=rgb(241,241,241)&w=1600&h=900&fmt=auto",
         "https://assets.specialized.com/i/specialized/60219-034_HLMT_AMBUSH-HLMT-ANGI-MIPS-CPSC-BLK-M_REAR?bg=rgb(241,241,241)&w=1600&h=900&fmt=auto",
@@ -105,7 +105,7 @@
       "id": 6,
       "title": "2FO DH Clip Mountain Bike Shoes",
       "description": "When ripping down the trail, the last thing you need to worry about is if your helmet will protect you in a crash. Then again, you don't want to be stuck wearing a full-face on every trail ride.",
-      "price": "$ 130",
+      "price": 130,
       "images": [
         "https://assets.specialized.com/i/specialized/61622-404_SHOE_2FO-CLIPLITE-MTB-SHOE-OAKGRN-44_HERO?bg=rgb(241,241,241)&w=1600&h=900&fmt=auto",
         "https://assets.specialized.com/i/specialized/61622-404_SHOE_2FO-CLIPLITE-MTB-SHOE-OAKGRN-44_PAIR?bg=rgb(241,241,241)&w=1600&h=900&fmt=auto",
@@ -118,7 +118,7 @@
       "id": 7,
       "title": "Recon 2.0 Mountain Bike Shoes",
       "description": "When ripping down the trail, the last thing you need to worry about is if your helmet will protect you in a crash. Then again, you don't want to be stuck wearing a full-face on every trail ride.",
-      "price": "$ 50",
+      "price": 50,
       "images": [
         "https://assets.specialized.com/i/specialized/61520-104_SHOE_RECON-20-MTB-SHOE-BLK-42_HERO?bg=rgb(241,241,241)&w=1600&h=900&fmt=auto",
         "https://assets.specialized.com/i/specialized/61520-104_SHOE_RECON-20-MTB-SHOE-BLK-42_PAIR?bg=rgb(241,241,241)&w=1600&h=900&fmt=auto",
@@ -131,7 +131,7 @@
       "id": 8,
       "title": "2FO ClipLite Mountain Bike Shoes",
       "description": "When ripping down the trail, the last thing you need to worry about is if your helmet will protect you in a crash. Then again, you don't want to be stuck wearing a full-face on every trail ride.",
-      "price": "$ 120",
+      "price": 20,
       "images": [
         "https://assets.specialized.com/i/specialized/61621-034_SHOE_2FO-DH-CLIP-MTB-SHOE-CLGRY-44_HERO?bg=rgb(241,241,241)&w=1600&h=900&fmt=auto",
         "https://assets.specialized.com/i/specialized/61621-034_SHOE_2FO-DH-CLIP-MTB-SHOE-CLGRY-44_PAIR?bg=rgb(241,241,241)&w=1600&h=900&fmt=auto",
