@@ -17,7 +17,6 @@ const CartPage = () => {
   const [amount, setAmount] = React.useState(1);
   const { cart, removeFromCart } = React.useContext(UserCartContext);
 
-  console.log(cart);
   const handleAmountInc = () => {
     setAmount(amount + 1);
   };
@@ -101,7 +100,6 @@ const CartPage = () => {
 
         <Divider />
       </Paper>
-
     </Container>
   );
 };
