@@ -24,23 +24,30 @@ const ShopItem = ({
     >
       <Box
         component="img"
-        src={images}
+        src={images[0]}
         sx={{ objectFit: 'contain' }}
       />
       <Box sx={{
         display: 'flex',
         flexDirection: 'column',
-        gap: 1,
         px: 2,
       }}
       >
         <Typography
-          variant="h5"
+          variant="h6"
           color="grey.800"
+          fontWeight="bold"
         >
           {title}
         </Typography>
-        <Typography variant="body1">{price}</Typography>
+        <Typography
+          variant="h6"
+          fontWeight="bold"
+          color="grey.400"
+        >
+          {price}
+
+        </Typography>
       </Box>
       <Button
         fullWidth
