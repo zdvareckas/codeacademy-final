@@ -18,7 +18,7 @@ const BikePage = () => {
   const { bikeId } = useParams();
   const [bike, setBike] = React.useState([]);
   const [sizeGuideOpen, setSizeGuideOpen] = React.useState(false);
-  const { addToCart } = React.useContext(UserCartContext);
+  const { cart, addToCart } = React.useContext(UserCartContext);
 
   React.useEffect(() => {
     (async () => {
@@ -110,6 +110,7 @@ const BikePage = () => {
             onClick={() => {
               addToCart(bike);
             }}
+            disabled={Boolean(cart.find((x) => x.item.id === bike.id))}
           >
             ADD TO CART
           </Button>

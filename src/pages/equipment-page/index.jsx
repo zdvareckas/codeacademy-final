@@ -14,7 +14,7 @@ import UserCartContext from '../../contexts/cart-context';
 const EquipmentPage = () => {
   const { equipmentId } = useParams();
   const [equipment, setEquipment] = React.useState([]);
-  const { addToCart } = React.useContext(UserCartContext);
+  const { cart, addToCart } = React.useContext(UserCartContext);
 
   React.useEffect(() => {
     (async () => {
@@ -90,6 +90,7 @@ const EquipmentPage = () => {
             onClick={() => {
               addToCart(equipment);
             }}
+            disabled={Boolean(cart.find((x) => x.item.id === equipment.id))}
           >
             ADD TO CART
           </Button>
