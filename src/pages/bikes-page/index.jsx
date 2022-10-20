@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box } from '@mui/material';
 import { useSearchParams } from 'react-router-dom';
-import { bikeService } from '../../services/bikes-service';
+import { bikesService } from '../../services/bikes-service';
 import ResponsiveItemsGrid from '../../components/responsive-items-grid';
 import ShopItem from '../../components/shop-item';
 import BikesFilter from './components/bikes-filter';
@@ -15,7 +15,7 @@ const BikesPage = () => {
 
   React.useEffect(() => {
     (async () => {
-      const data = await bikeService.fetchAll(searchParams.toString());
+      const data = await bikesService.fetchAll(searchParams.toString());
       setBikes(data);
     })();
   }, [searchParams]);

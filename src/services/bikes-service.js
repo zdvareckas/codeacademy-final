@@ -17,7 +17,7 @@ const fetchById = async (id) => {
   return item;
 };
 
-export const bikeService = {
+export const bikesService = {
   fetchAll,
   fetchById,
 };

@@ -46,7 +46,6 @@ const ShopItem = ({
           color="grey.400"
         >
           {price}
-
         </Typography>
       </Box>
       <Button

@@ -9,9 +9,9 @@ import {
 } from '@mui/material';
 import { useParams } from 'react-router-dom';
 import StraightenIcon from '@mui/icons-material/Straighten';
-import { bikeService } from '../../services/bikes-service';
-import Banner from '../../components/banner';
 import { ItemContent, ScrollableImageContainer } from './components';
+import { bikesService } from '../../services/bikes-service';
+import Banner from '../../components/banner';
 
 const ItemPage = () => {
   const { itemId } = useParams();
@@ -20,7 +20,7 @@ const ItemPage = () => {
 
   React.useEffect(() => {
     (async () => {
-      const data = await bikeService.fetchById(itemId);
+      const data = await bikesService.fetchById(itemId);
       setItem(data);
     })();
   }, [itemId]);
