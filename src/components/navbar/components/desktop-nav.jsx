@@ -4,6 +4,7 @@ import {
   Box,
   IconButton,
   Toolbar,
+  Typography,
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import DirectionsBikeIcon from '@mui/icons-material/DirectionsBike';
@@ -11,11 +12,13 @@ import PersonIcon from '@mui/icons-material/Person';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { useLocation, useNavigate } from 'react-router-dom';
 import * as Nav from '.';
+import UserCartContext from '../../../contexts/cart-context';
 
 const DesktopNav = ({ handleDrawerToggle, pages }) => {
   const location = useLocation();
   const navigate = useNavigate();
   const homePage = location.pathname === '/';
+  const { cart } = React.useContext(UserCartContext);
 
   return (
     <AppBar
@@ -58,12 +61,26 @@ const DesktopNav = ({ handleDrawerToggle, pages }) => {
           <IconButton sx={{ color: 'inherit' }}>
             <PersonIcon />
           </IconButton>
+
           <IconButton
             onClick={() => navigate('/cart')}
-            sx={{ color: 'inherit' }}
+            sx={{ position: 'relative', color: 'inherit' }}
           >
             <ShoppingCartIcon />
           </IconButton>
+
+          <Typography sx={{
+            position: 'absolute',
+            top: 10,
+            right: 20,
+            backgroundColor: 'primary.dark',
+            borderRadius: 100,
+            px: 1,
+            fontSize: 12,
+          }}
+          >
+            {cart.length}
+          </Typography>
         </Box>
 
       </Toolbar>

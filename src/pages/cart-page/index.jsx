@@ -89,7 +89,7 @@ const CartPage = () => {
                   right: 0,
                 }}
                 onClick={() => {
-                  removeFromCart(x.id);
+                  removeFromCart(x.item.id);
                 }}
               >
                 <DeleteIcon />

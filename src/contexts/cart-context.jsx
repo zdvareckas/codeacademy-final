@@ -14,7 +14,7 @@ export const CartContext = ({ children }) => {
     },
 
     removeFromCart: (id) => {
-      setCart(cart.filter((x) => (x.id !== id)));
+      setCart(cart.filter((x) => (x.item.id !== id)));
     },
 
   }), [cart]);
