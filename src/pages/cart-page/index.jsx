@@ -15,7 +15,6 @@ import UserCartContext from '../../contexts/cart-context';
 
 const CartPage = () => {
   const { cart, removeFromCart, updateCartItemCount } = React.useContext(UserCartContext);
-  const [amount, setAmount] = React.useState(1);
 
   return (
     <Container sx={{
@@ -27,6 +26,11 @@ const CartPage = () => {
     >
       <Paper sx={{ width: '70%', p: 5, my: 20 }}>
         <Typography variant="h4">Cart</Typography>
+        <Typography>
+          Total:
+          {' '}
+          {cart.reduce((prevSum, x) => (prevSum + (x.price * x.amount)), 0)}
+        </Typography>
         <Divider />
         {cart.map((x) => (
           <CartItem key={x.id}>
@@ -53,8 +57,7 @@ const CartPage = () => {
                 >
                   <IconButton
                     onClick={() => {
-                      setAmount(amount + 1);
-                      updateCartItemCount({ item: x, amount });
+                      updateCartItemCount({ item: x, amount: x.amount + 1 });
                     }}
                   >
                     <AddIcon />
@@ -63,8 +66,7 @@ const CartPage = () => {
                   <Typography>{x.amount}</Typography>
                   <IconButton
                     onClick={() => {
-                      setAmount(amount - 1);
-                      updateCartItemCount({ item: x, amount });
+                      updateCartItemCount({ item: x, amount: x.amount - 1 });
                     }}
                     disabled={x.amount === 0}
                   >
@@ -84,6 +86,7 @@ const CartPage = () => {
                 $
                 {(Number(x.price) * x.amount).toFixed(2)}
               </Typography>
+
               <IconButton
                 sx={{
                   position: 'absolute',

@@ -9,8 +9,7 @@ export const CartContext = ({ children }) => {
     cart,
 
     addToCart: (item) => {
-      setCart([...cart, { ...item, amount: 0 }]);
-      console.log(cart);
+      setCart([...cart, item]);
     },
 
     removeFromCart: (id) => {

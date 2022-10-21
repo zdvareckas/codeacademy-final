@@ -23,7 +23,7 @@ const BikePage = () => {
   React.useEffect(() => {
     (async () => {
       const data = await bikesService.fetchById(bikeId);
-      setBike(data);
+      setBike({ ...data, amount: 1 });
     })();
   }, [bikeId]);
 
