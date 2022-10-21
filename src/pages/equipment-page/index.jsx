@@ -19,7 +19,7 @@ const EquipmentPage = () => {
   React.useEffect(() => {
     (async () => {
       const data = await equiptmentService.fetchById(equipmentId);
-      setEquipment(data);
+      setEquipment({ ...data, amount: 1 });
     })();
   }, [equipmentId]);
 
