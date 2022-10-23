@@ -6,17 +6,32 @@ const createBikeViewmodel = require('../viewmodels/create-bike-viewmodel');
 const createBikeNotFoundError = (bikeId) => createNotFoundError(`Bike #${bikeId} not found`);
 
 const fetchAll = async (req, res) => {
-  const { expand } = req.query;
+  const { expand, id, suspensionId, materialId, sizeId, typeId } = req.query;
+  const populatedBikeDocuments = expand === 'all';
+  const filter = {};
+
+  if (id) filter._id = id;
+  if (suspensionId) {
+    filter.suspensionId = suspensionId;
+  };
+  if (materialId) {
+    filter.materialId = materialId;
+  };
+  if (sizeId) {
+    filter.sizeId = sizeId;
+  };
+  if (typeId) {
+    filter.typeId = typeId;
+  };
 
   try {
-
-    const bikeDocuments = expand === 'all'
-      ? await BikeModel.find()
+    const bikeDocuments = populatedBikeDocuments
+      ? await BikeModel.find(filter)
         .populate('suspensionId')
         .populate('materialId')
         .populate('sizeId')
         .populate('typeId')
-      : await BikeModel.find()
+      : await BikeModel.find(filter)
 
     res.status(200).json(
       bikeDocuments.map((bike) => createBikeViewmodel(bike))

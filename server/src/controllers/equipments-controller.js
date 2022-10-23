@@ -6,15 +6,25 @@ const createEquipmentViewmodel = require('../viewmodels/create-equipment-viewmod
 const createEquipmentNotFoundError = (equipmentId) => createNotFoundError(`Equipment #${equipmentId} not found`);
 
 const fetchAll = async (req, res) => {
-  const { expand } = req.query;
+  const { expand, id, categoryId, sizeId } = req.query;
+  const populatedEquipmentDocuments = expand === 'all';
+  const filter = {};
+
+  if (id) filter._id = id;
+  if (categoryId) {
+    filter.categoryId = categoryId;
+  };
+  if (sizeId) {
+    filter.sizeId = sizeId;
+  };
 
   try {
 
-    const equipmentDocuments = expand === 'all'
-      ? await EquipmentModel.find()
+    const equipmentDocuments = populatedEquipmentDocuments
+      ? await EquipmentModel.find(filter)
         .populate('sizeId')
         .populate('categoryId')
-      : await EquipmentModel.find()
+      : await EquipmentModel.find(filter)
 
     res.status(200).json(
       equipmentDocuments.map((x) => createEquipmentViewmodel(x))
