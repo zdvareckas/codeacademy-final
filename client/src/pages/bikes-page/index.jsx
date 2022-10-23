@@ -17,6 +17,7 @@ const BikesPage = () => {
     (async () => {
       const data = await bikesService.fetchAll(searchParams.toString());
       setBikes(data);
+      console.log(data);
     })();
   }, [searchParams]);
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { suspensionsService } from '../../../services/suspensions-service copy';
+import { suspensionsService } from '../../../services/suspensions-service';
 import { materialsService } from '../../../services/materials-service';
 import { sizesService } from '../../../services/sizes-service';
 import { typesService } from '../../../services/types-service';
