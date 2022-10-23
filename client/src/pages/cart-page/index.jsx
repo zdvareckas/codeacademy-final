@@ -6,10 +6,10 @@ import {
   Typography,
 } from '@mui/material';
 import CartItem from './components/cart-item';
-import UserCartContext from '../../contexts/cart-context';
+import useUserCartContext from '../../hooks/useCartContext';
 
 const CartPage = () => {
-  const { cart, removeFromCart, updateCartItemCount } = React.useContext(UserCartContext);
+  const { cart, removeFromCart, updateCartItemCount } = useUserCartContext();
 
   return (
     <Container sx={{

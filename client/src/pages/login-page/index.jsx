@@ -6,8 +6,8 @@ import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { useSearchParams } from 'react-router-dom';
 import AuthForm from '../../components/auth-form';
-import AuthContext from '../../contexts/auth-context';
 import { authClearErrorsAction, createLoginThunkAction } from '../../store/auth/auth-actions';
+import useAuthContext from '../../hooks/useAuthContext';
 
 const initialValues = {
   email: '',
@@ -24,7 +24,7 @@ const validationSchema = yup.object({
 });
 
 const LoginPage = () => {
-  const { error, dispatch } = React.useContext(AuthContext);
+  const { error, dispatch } = useAuthContext();
 
   const [serachParams] = useSearchParams();
 

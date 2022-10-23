@@ -1,8 +1,8 @@
 import React from 'react';
-import AuthContext from '../../contexts/auth-context';
+import useAuthContext from '../../hooks/useAuthContext';
 
 const ProfilePage = () => {
-  const { user } = React.useContext(AuthContext);
+  const { user } = useAuthContext();
 
   return (
     <pre>{JSON.stringify(user, null, 4)}</pre>

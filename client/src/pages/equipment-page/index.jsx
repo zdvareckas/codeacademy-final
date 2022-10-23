@@ -7,14 +7,14 @@ import {
 } from '@mui/material';
 import { useParams } from 'react-router-dom';
 import { ItemContent, ScrollableImageContainer } from '../../components';
-import Banner from '../../components/banner';
 import { equiptmentService } from '../../services/equiptment-service';
-import UserCartContext from '../../contexts/cart-context';
+import Banner from '../../components/banner';
+import useUserCartContext from '../../hooks/useCartContext';
 
 const EquipmentPage = () => {
   const { equipmentId } = useParams();
   const [equipment, setEquipment] = React.useState([]);
-  const { cart, addToCart } = React.useContext(UserCartContext);
+  const { cart, addToCart } = useUserCartContext();
 
   React.useEffect(() => {
     (async () => {

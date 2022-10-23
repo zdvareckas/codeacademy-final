@@ -5,13 +5,13 @@ import { bikesService } from '../../services/bikes-service';
 import ResponsiveItemsGrid from '../../components/responsive-items-grid';
 import ShopItem from '../../components/shop-item';
 import BikesFilter from './components/bikes-filter';
-import ItemFilterContext from '../../contexts/filter-context';
 import Banner from '../../components/banner';
+import useFilterContext from '../../hooks/useFilterContext';
 
 const BikesPage = () => {
   const [bikes, setBikes] = React.useState([]);
   const [searchParams] = useSearchParams();
-  const { filterOpen } = React.useContext(ItemFilterContext);
+  const { filterOpen } = useFilterContext();
 
   React.useEffect(() => {
     (async () => {

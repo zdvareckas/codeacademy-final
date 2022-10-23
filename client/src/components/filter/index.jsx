@@ -6,10 +6,10 @@ import {
 } from '@mui/material';
 import TuneIcon from '@mui/icons-material/Tune';
 import CloseIcon from '@mui/icons-material/Close';
-import ItemFilterContext from '../../contexts/filter-context';
+import useFilterContext from '../../hooks/useFilterContext';
 
 const Filter = ({ handleReset, children }) => {
-  const { filterOpen, handleFilterOpen } = React.useContext(ItemFilterContext);
+  const { filterOpen, handleFilterOpen } = useFilterContext();
 
   return (
     <>

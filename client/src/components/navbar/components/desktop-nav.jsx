@@ -12,14 +12,14 @@ import PersonIcon from '@mui/icons-material/Person';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { useLocation, useNavigate } from 'react-router-dom';
 import * as Nav from '.';
-import UserCartContext from '../../../contexts/cart-context';
 import AuthMenu from './auth-menu';
+import useUserCartContext from '../../../hooks/useCartContext';
 
 const DesktopNav = ({ handleDrawerToggle, pages }) => {
   const location = useLocation();
   const navigate = useNavigate();
   const homePage = location.pathname === '/';
-  const { cart } = React.useContext(UserCartContext);
+  const { cart } = useUserCartContext();
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = (event) => {
