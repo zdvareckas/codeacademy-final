@@ -1,4 +1,4 @@
-const domain = 'http://localhost:2566';
+const domain = process.env.REACT_APP_SERVER_DOMAIN;
 const collectionName = 'api/sizes';
 
 const fetchAll = async () => {
