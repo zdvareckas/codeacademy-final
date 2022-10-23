@@ -87,11 +87,10 @@ const CartItem = ({ item, removeFromCart, updateCartItemCount }) => (
           >
             <RemoveIcon />
           </IconButton>
-
         </Box>
 
         <IconButton
-          sx={{ position: 'absolute', right: 0 }}
+          sx={{ position: 'absolute', right: 0, bottom: 5 }}
           onClick={() => {
             removeFromCart(item.id);
           }}
