@@ -13,8 +13,11 @@ import { CartItemDesc, CartImage } from '.';
 const Item = styled(Box)(({ theme }) => ({
   position: 'relative',
   display: 'flex',
+  padding: theme.spacing(1),
   flexDirection: 'row',
   justifyContent: 'space-between',
+  paddingBottom: theme.spacing(2),
+  borderBottom: `1px solid ${theme.palette.grey[400]}`,
   [theme.breakpoints.up('xs')]: {
     flexDirection: 'column',
   },
@@ -29,8 +32,8 @@ const CartItem = ({ item, removeFromCart, updateCartItemCount }) => (
       <CartImage image={item?.images} />
       <Box sx={{
         display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'space-between',
+        flexDirection: 'row',
+        alignItems: 'center',
       }}
       >
         <CartItemDesc
@@ -39,11 +42,33 @@ const CartItem = ({ item, removeFromCart, updateCartItemCount }) => (
           size={item?.size?.label}
         />
 
+      </Box>
+    </Box>
+
+    <Box sx={{
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'space-around',
+      alignItems: 'center',
+    }}
+    >
+      <Typography
+        variant="h6"
+        color="grey.600"
+      >
+        Total:
+        $
+        {(Number(item.price) * item.amount).toFixed(2)}
+      </Typography>
+
+      <Box>
         <Box sx={{
           display: 'flex',
           alignItems: 'center',
+          justifyContent: 'space-between',
           border: 1,
-          borderRadius: 50,
+          borderRadius: 5,
+          borderColor: 'grey.400',
         }}
         >
           <IconButton
@@ -52,46 +77,32 @@ const CartItem = ({ item, removeFromCart, updateCartItemCount }) => (
             }}
           >
             <AddIcon />
-
           </IconButton>
           <Typography>{item.amount}</Typography>
           <IconButton
             onClick={() => {
               updateCartItemCount({ item, amount: item.amount - 1 });
             }}
-            disabled={item.amount === 0}
+            disabled={item.amount === 1}
           >
             <RemoveIcon />
           </IconButton>
+
         </Box>
+
+        <IconButton
+          sx={{ position: 'absolute', right: 0 }}
+          onClick={() => {
+            removeFromCart(item.id);
+          }}
+        >
+          <DeleteIcon />
+        </IconButton>
+
       </Box>
+
     </Box>
 
-    <Box sx={{
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'space-around',
-    }}
-    >
-      <Typography>
-        $
-        {(Number(item.price) * item.amount).toFixed(2)}
-      </Typography>
-
-      <IconButton
-        sx={{
-          position: 'absolute',
-          bottom: 0,
-          right: 0,
-        }}
-        onClick={() => {
-          removeFromCart(item.id);
-        }}
-      >
-        <DeleteIcon />
-
-      </IconButton>
-    </Box>
   </Item>
 );
 
