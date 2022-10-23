@@ -6,7 +6,7 @@ import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { useSearchParams } from 'react-router-dom';
 import AuthForm from '../../components/auth-form';
-import AuthContext from '../../store/auth/auth-context';
+import AuthContext from '../../contexts/auth-context';
 import { authClearErrorsAction, createLoginThunkAction } from '../../store/auth/auth-actions';
 
 const initialValues = {

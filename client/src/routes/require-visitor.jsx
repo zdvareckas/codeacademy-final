@@ -1,7 +1,7 @@
 import React from 'react';
 import { Navigate } from 'react-router-dom';
 import { authClearRedirect } from '../store/auth/auth-actions';
-import AuthContext from '../store/auth/auth-context';
+import AuthContext from '../contexts/auth-context';
 
 const RequireVisitor = ({ children: Page }) => {
   const { loggedIn, redirect, dispatch } = React.useContext(AuthContext);

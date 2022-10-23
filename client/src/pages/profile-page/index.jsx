@@ -1,5 +1,5 @@
 import React from 'react';
-import AuthContext from '../../store/auth/auth-context';
+import AuthContext from '../../contexts/auth-context';
 
 const ProfilePage = () => {
   const { user } = React.useContext(AuthContext);

@@ -1,8 +1,8 @@
 /* eslint-disable react/jsx-no-constructed-context-values */
 import React from 'react';
-import { authInitializedAction, createAuthInitializeThunkAction } from './auth-actions';
-import authReducer from './auth-reducer';
-import useReducerWithThunk from '../../hooks/useReducerWithtThunk';
+import { authInitializedAction, createAuthInitializeThunkAction } from '../store/auth/auth-actions';
+import authReducer from '../store/auth/auth-reducer';
+import useReducerWithThunk from '../hooks/useReducerWithtThunk';
 
 const initialAuthState = {
   initialized: false,
