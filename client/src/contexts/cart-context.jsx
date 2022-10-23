@@ -1,9 +1,10 @@
 import React from 'react';
+import useLocalStorage from '../hooks/useLocalStorage';
 
 const UserCartContext = React.createContext();
 
 export const CartContext = ({ children }) => {
-  const [cart, setCart] = React.useState([]);
+  const [cart, setCart] = useLocalStorage('cart', []);
 
   const cartContextValue = React.useMemo(() => ({
     cart,
