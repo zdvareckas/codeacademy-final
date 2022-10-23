@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  Box,
   Button,
   Drawer,
   IconButton,
@@ -13,16 +14,29 @@ const Filter = ({ handleReset, children }) => {
 
   return (
     <>
-      <IconButton
+      <Box
         sx={{
           position: 'absolute',
-          right: { xs: '6%', md: '6%' },
-          top: 15,
+          display: 'flex',
+          alignItems: 'center',
+          right: { xs: '6%', md: 100 },
+          top: 10,
         }}
-        onClick={handleFilterOpen}
       >
-        <TuneIcon />
-      </IconButton>
+        <Button
+          fullWidth
+          onClick={handleFilterOpen}
+          variant="outlined"
+          sx={{
+            border: 2,
+            borderRadius: 2,
+            borderColor: 'grey.400',
+          }}
+        >
+          Filters
+          <TuneIcon />
+        </Button>
+      </Box>
 
       <Drawer
         open={filterOpen}
@@ -54,7 +68,13 @@ const Filter = ({ handleReset, children }) => {
           <CloseIcon />
         </IconButton>
         {children}
-        <Button onClick={handleReset}>Reset filters</Button>
+        <Button
+          variant="contained"
+          color="error"
+          onClick={handleReset}
+        >
+          Reset filters
+        </Button>
       </Drawer>
     </>
   );

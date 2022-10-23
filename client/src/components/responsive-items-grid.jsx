@@ -6,7 +6,7 @@ const ResponsiveItemsGrid = ({ filtersOpen, children }) => (
     sx={{
       display: 'grid',
       gap: 3,
-      placeContent: 'center',
+      placeContent: 'start',
       gridTemplateColumns: {
         xl: `${filtersOpen ? 'repeat(3, 475px)' : 'repeat(3, 550px)'}`,
         lg: `${filtersOpen ? 'repeat(2, 400px)' : 'repeat(3, 400px)'}`,
