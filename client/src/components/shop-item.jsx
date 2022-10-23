@@ -20,6 +20,9 @@ const ShopItem = ({
         flexDirection: 'column',
         gap: 2,
         backgroundColor: '#F3F0F3',
+        border: 3,
+        borderStyle: 'dashed',
+        borderColor: 'grey.400',
       }}
     >
       <Box
