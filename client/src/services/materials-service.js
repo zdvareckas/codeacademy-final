@@ -1,5 +1,5 @@
-const domain = 'http://localhost:8000';
-const collectionName = 'materials';
+const domain = 'http://localhost:2566';
+const collectionName = 'api/materials';
 
 const fetchAll = async () => {
   const response = await fetch(`${domain}/${collectionName}`);

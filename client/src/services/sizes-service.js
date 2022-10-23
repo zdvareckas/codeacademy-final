@@ -1,5 +1,5 @@
-const domain = 'http://localhost:8000';
-const collectionName = 'sizes';
+const domain = 'http://localhost:2566';
+const collectionName = 'api/sizes';
 
 const fetchAll = async () => {
   const response = await fetch(`${domain}/${collectionName}`);
