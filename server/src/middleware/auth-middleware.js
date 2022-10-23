@@ -8,7 +8,7 @@ const requireAuth = async (req, res, next) => {
       throw createUnauthorizedError('Unauthorized. Auth header is not present')
     }
 
-    const [_prefix, token] = req.headers.authorization.split(' ')
+    const [_prefix, token] = req.headers.authorization.split(' ');
 
     if (token === undefined) {
       throw createUnauthorizedError('Unauthorized. Auth token is not present')
@@ -25,9 +25,8 @@ const requireAuth = async (req, res, next) => {
       req.authUser = userDoc;
 
       next();
-
     } catch (error) {
-      throw createUnauthorizedError('Unauthorized. Token data is corrupt');
+      throw createUnauthorizedError('Unauthorized token data  is corrupt.');
     }
 
   } catch (error) {

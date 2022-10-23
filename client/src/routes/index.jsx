@@ -25,7 +25,6 @@ const PageRoutes = () => (
       <Route path="equipment/:equipmentId" element={<EquipmentPage />} />
       <Route path="contacts" element={<ContactsPage />} />
       <Route path="cart" element={<CartPage />} />
-
       <Route path="/profile" element={<RequireAuth><ProfilePage /></RequireAuth>} />
 
       <Route path="auth" element={<RequireVisitor><AuthLayout /></RequireVisitor>}>

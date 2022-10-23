@@ -1,9 +1,8 @@
-const { createNotFoundError, sendErrorResponse } = require('../helpers/errors');
+const { createNotFoundError, sendErrorResponse, createBadDataError } = require('../helpers/errors');
 const { hashPassword, comparePasswords } = require('../helpers/password-encryption');
 const { createToken } = require('../helpers/token')
 const UserModel = require('../model/user-model');
 const createUserViewModel = require('../viewmodels/create-user-viewmodel');
-
 
 const login = async (req, res) => {
   const { email, password } = req.body;
@@ -49,9 +48,56 @@ const register = async (req, res) => {
   } catch (err) {
     sendErrorResponse(err, res)
   }
-}
+};
+
+const auth = async (req, res) => {
+  res.status(201).json({
+    user: createUserViewModel(req.authUser),
+    token: createToken({ email: req.authUser.email, role: req.authUser.role }),
+  });
+};
+
+const checkEmail = async (req, res) => {
+  const { email } = req.body;
+
+  try {
+    if (!email) createBadDataError('Email not defined');
+    const foundEmailUser = await UserModel.findOne({ email })
+
+    res.status(200).json({ email, emailAvailable: foundEmailUser === null })
+
+  } catch (error) {
+    sendErrorResponse(err, res)
+  }
+};
+
+const updateProfile = async (req, res) => {
+  const requestData = {
+    fullname: req.body.fullname,
+    email: req.body.email,
+  };
+
+  console.log(requestData)
+
+  try {
+    await UserModel.validateUpdate(requestData);
+
+    if (requestData.fullname) req.authUser.fullname = requestData.fullname;
+    if (requestData.email) req.authUser.email = requestData.email;
+
+    await req.authUser.save();
+
+    res.status(200).json({
+      user: createUserViewModel(req.authUser),
+      token: createToken({ email: req.authUser.email, role: req.authUser.role }),
+    });
+  } catch (err) { sendErrorResponse(err, res); }
+};
 
 module.exports = {
   login,
-  register
+  register,
+  auth,
+  checkEmail,
+  updateProfile,
 };

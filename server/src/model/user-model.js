@@ -83,6 +83,9 @@ const userUpdateValidationSchema = yup.object().shape({
       }
     ),
 
+  fullname: yup.string()
+    .typeError('Fullname has to be string'),
+
   emailConfirmation: yup.string()
     .typeError('Email must be a string')
     .oneOf([yup.ref('email')], 'Passwords does not match'),
@@ -101,9 +104,7 @@ const userUpdateValidationSchema = yup.object().shape({
   role: yup.string().typeError('Role must be a string')
     .oneOf(['USER', 'ADMIN']),
 
-  img: yup.string().typeError('Role must be a string'),
-
-
+  img: yup.string().typeError('Img must be a string'),
 });
 
 userShema.statics.validateNew = (userData) => userValidationSchema.validate(userData);

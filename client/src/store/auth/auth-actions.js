@@ -63,6 +63,7 @@ export const createAuthInitializeThunkAction = (token) => async (dispatch) => {
 
 export const createAuthUpdateProfileThunkAction = (formData) => async (dispatch, getState) => {
   const { token } = getState();
+
   try {
     dispatch(authLoadingAction);
     const authData = await AuthService.updateProfile({ formData, token });
