@@ -13,12 +13,22 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { useLocation, useNavigate } from 'react-router-dom';
 import * as Nav from '.';
 import UserCartContext from '../../../contexts/cart-context';
+import AuthMenu from './auth-menu';
 
 const DesktopNav = ({ handleDrawerToggle, pages }) => {
   const location = useLocation();
   const navigate = useNavigate();
   const homePage = location.pathname === '/';
   const { cart } = React.useContext(UserCartContext);
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
   return (
     <AppBar
@@ -58,10 +68,17 @@ const DesktopNav = ({ handleDrawerToggle, pages }) => {
         </Box>
 
         <Box>
-          <IconButton sx={{ color: 'inherit' }}>
+          <IconButton
+            sx={{ color: 'inherit' }}
+            onClick={handleClick}
+          >
             <PersonIcon />
           </IconButton>
 
+          <AuthMenu
+            anchorEl={anchorEl}
+            handleClose={handleClose}
+          />
           <IconButton
             onClick={() => navigate('/cart')}
             sx={{ position: 'relative', color: 'inherit' }}
