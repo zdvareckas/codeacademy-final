@@ -27,7 +27,7 @@ const CartPage = () => {
         position: 'relative',
         width: '80%',
         my: 20,
-        minHeight: 250,
+        minHeight: 300,
       }}
       >
         <Typography
@@ -52,7 +52,28 @@ const CartPage = () => {
         ))}
 
         {cart.length === 0 && (
-          <Typography variant="h3" textAlign="center">Your cart is empty</Typography>
+          <Box sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            mt: 5,
+            gap: { xs: 4, sm: 10 },
+          }}
+          >
+            <Typography
+              variant="h3"
+              textAlign="center"
+            >
+              Cart is currently empty..
+            </Typography>
+            <Button
+              variant="contained"
+              onClick={() => navigate('/bikes')}
+            >
+              Back to shop
+            </Button>
+          </Box>
         )}
 
         <Box sx={{
@@ -83,7 +104,6 @@ const CartPage = () => {
           </Typography>
         </Box>
       </Paper>
-
     </Container>
   );
 };
