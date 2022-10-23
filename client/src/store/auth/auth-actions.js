@@ -9,7 +9,6 @@ import {
   AUTH_CLEAR_REDIRECT,
 } from './auth-action-types';
 
-// Paprasti action'ai
 export const authInitializedAction = { type: AUTH_INITIALIZED };
 
 export const authLoadingAction = { type: AUTH_LOADING };
@@ -20,7 +19,6 @@ export const authLogoutAction = { type: AUTH_LOGOUT };
 
 export const authClearRedirect = { type: AUTH_CLEAR_REDIRECT };
 
-// Action'ai kuriems reikia payload
 export const createAuthSuccessAction = ({ user, token, redirect }) => ({
   type: AUTH_SUCCESS,
   payload: {
@@ -35,15 +33,7 @@ export const createAuthFailureAction = (message) => ({
   payload: { message },
 });
 
-/*
- Thunk - Funkcija atliekanti salyginę ir|arba asinchroninę logiką, siųsti vieną
- ar daugiau action'ų  t.y. - vykdanti vieną ar daugiau būsenos pakitimų.
- Ši funkcija gauna tokius parametrus
-  * dispatch - funkcija siųsti action'an
-  * getState? - funkcija gauti dabartinei būsenai
-*/
-//                            ↙ function that returns thunk ↘
-export const createLoginThunkAction = (credentials, redirect) => /* return */ async (dispatch) => {
+export const createLoginThunkAction = (credentials, redirect) => async (dispatch) => {
   try {
     dispatch(authLoadingAction);
     const authData = await AuthService.login(credentials);
@@ -56,7 +46,6 @@ export const createLoginThunkAction = (credentials, redirect) => /* return */ as
   }
 };
 
-//                            ↙ function that returns thunk ↘
 export const createAuthInitializeThunkAction = (token) => async (dispatch) => {
   try {
     dispatch(authLoadingAction);
