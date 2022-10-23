@@ -1,6 +1,7 @@
 const BikeModel = require('../model/bike-model');
 const { createNotFoundError, sendErrorResponse } = require('../helpers/errors');
-const { removeEmptyProps } = require('../helpers/index')
+const { removeEmptyProps } = require('../helpers/index');
+const createBikeViewmodel = require('../viewmodels/create-bike-viewmodel');
 
 const createBikeNotFoundError = (bikeId) => createNotFoundError(`Bike #${bikeId} not found`);
 
@@ -17,7 +18,9 @@ const fetchAll = async (req, res) => {
         .populate('typeId')
       : await BikeModel.find()
 
-    res.status(200).json(bikeDocuments)
+    res.status(200).json(
+      bikeDocuments.map((bike) => createBikeViewmodel(bike))
+    )
 
   } catch (err) { sendErrorResponse(err, res) }
 };
@@ -37,7 +40,9 @@ const fetch = async (req, res) => {
 
     if (foundBike === null) throw createBikeNotFoundError(bikeId);
 
-    res.status(200).json(foundBike)
+    res.status(200).json(
+      createBikeViewmodel(foundBike)
+    )
   } catch (err) { sendErrorResponse(err, res) }
 };
 

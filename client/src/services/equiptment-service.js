@@ -1,6 +1,6 @@
 const domain = 'http://localhost:2566';
 const collectionName = 'api/equipments';
-const relationshipParams = '_expand=all';
+const relationshipParams = 'expand=all';
 
 const fetchAll = async (searchParams = null) => {
   const urlSearchParams = searchParams ? `&${searchParams}` : '';

@@ -17,7 +17,6 @@ const BikesPage = () => {
     (async () => {
       const data = await bikesService.fetchAll(searchParams.toString());
       setBikes(data);
-      console.log(data);
     })();
   }, [searchParams]);
 
@@ -43,11 +42,11 @@ const BikesPage = () => {
         <BikesFilter />
         <ResponsiveItemsGrid filtersOpen={filterOpen}>
           {bikes.map(({
-            _id, title, price, images,
+            id, title, price, images,
           }) => (
             <ShopItem
-              key={_id}
-              id={_id}
+              key={id}
+              id={id}
               title={title}
               images={images}
               price={price}

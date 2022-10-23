@@ -1,6 +1,7 @@
 const EquipmentModel = require('../model/equipment-model');
 const { createNotFoundError, sendErrorResponse } = require('../helpers/errors');
-const { removeEmptyProps } = require('../helpers/index')
+const { removeEmptyProps } = require('../helpers/index');
+const createEquipmentViewmodel = require('../viewmodels/create-equipment-viewmodel');
 
 const createEquipmentNotFoundError = (equipmentId) => createNotFoundError(`Equipment #${equipmentId} not found`);
 
@@ -15,7 +16,9 @@ const fetchAll = async (req, res) => {
         .populate('categoryId')
       : await EquipmentModel.find()
 
-    res.status(200).json(equipmentDocuments)
+    res.status(200).json(
+      equipmentDocuments.map((x) => createEquipmentViewmodel(x))
+    )
 
   } catch (err) { sendErrorResponse(err, res) }
 };
@@ -33,7 +36,9 @@ const fetch = async (req, res) => {
 
     if (foundEquipment === null) throw createEquipmentNotFoundError(equipmentId);
 
-    res.status(200).json(foundEquipment)
+    res.status(200).json(
+      createEquipmentViewmodel(foundEquipment)
+    )
   } catch (err) { sendErrorResponse(err, res) }
 };
 
