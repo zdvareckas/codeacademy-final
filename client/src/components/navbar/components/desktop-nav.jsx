@@ -1,7 +1,9 @@
 import * as React from 'react';
 import {
   AppBar,
+  Avatar,
   Box,
+  Button,
   IconButton,
   Toolbar,
   Typography,
@@ -14,6 +16,8 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import * as Nav from '.';
 import AuthMenu from './auth-menu';
 import useUserCartContext from '../../../hooks/useCartContext';
+import useAuthContext from '../../../hooks/useAuthContext';
+import UserMenu from './user-menu';
 
 const DesktopNav = ({ handleDrawerToggle, pages }) => {
   const location = useLocation();
@@ -21,6 +25,7 @@ const DesktopNav = ({ handleDrawerToggle, pages }) => {
   const homePage = location.pathname === '/';
   const { cart } = useUserCartContext();
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const { loggedIn, user } = useAuthContext();
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -67,18 +72,41 @@ const DesktopNav = ({ handleDrawerToggle, pages }) => {
           ))}
         </Box>
 
-        <Box>
-          <IconButton
-            sx={{ color: 'inherit' }}
-            onClick={handleClick}
-          >
-            <PersonIcon />
-          </IconButton>
+        <Box sx={{ display: 'flex' }}>
 
-          <AuthMenu
-            anchorEl={anchorEl}
-            handleClose={handleClose}
-          />
+          {!loggedIn && (
+            <IconButton
+              sx={{ color: 'inherit' }}
+              onClick={handleClick}
+            >
+              <PersonIcon />
+            </IconButton>
+          )}
+
+          {loggedIn && (
+            <Button onClick={handleClick}>
+              <Avatar
+                src={user.img}
+              >
+                {user.fullname.slice(0, 1)}
+              </Avatar>
+            </Button>
+          )}
+
+          {loggedIn && (
+            <UserMenu
+              anchorEl={anchorEl}
+              handleClose={handleClose}
+            />
+          )}
+
+          {!loggedIn && (
+            <AuthMenu
+              anchorEl={anchorEl}
+              handleClose={handleClose}
+            />
+          )}
+
           <IconButton
             onClick={() => navigate('/cart')}
             sx={{ position: 'relative', color: 'inherit' }}
