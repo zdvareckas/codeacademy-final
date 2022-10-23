@@ -1,5 +1,6 @@
 const MaterialModel = require('../model/material-model');
 const { createNotFoundError, sendErrorResponse } = require('../helpers/errors');
+const createMaterialViewModel = require('../viewmodels/create-material-viewmodel');
 
 const createMaterialNotFoundError = (materialId) => createNotFoundError(`Material #${materialId} not found`);
 
@@ -8,7 +9,8 @@ const fetchAll = async (req, res) => {
   try {
     const materialDocuments = await MaterialModel.find()
 
-    res.status(200).json(materialDocuments)
+    res.status(200).json(
+      materialDocuments.map((x) => createMaterialViewModel(x)))
   } catch (err) { sendErrorResponse(err, res) }
 };
 
@@ -20,7 +22,7 @@ const fetch = async (req, res) => {
 
     if (foundMaterial === null) throw createMaterialNotFoundError(materialId);
 
-    res.status(200).json(foundMaterial)
+    res.status(200).json(createMaterialViewModel(foundMaterial))
   } catch (err) { sendErrorResponse(err, res) }
 };
 

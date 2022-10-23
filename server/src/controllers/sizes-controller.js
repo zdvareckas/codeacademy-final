@@ -1,5 +1,6 @@
 const SizeModel = require('../model/size-model');
 const { createNotFoundError, sendErrorResponse } = require('../helpers/errors');
+const createSizeViewModel = require('../viewmodels/create-size-viewmodel');
 
 const createSizeNotFoundError = (sizeId) => createNotFoundError(`Size #${sizeId} not found`);
 
@@ -8,7 +9,8 @@ const fetchAll = async (req, res) => {
   try {
     const sizeDocuments = await SizeModel.find()
 
-    res.status(200).json(sizeDocuments)
+    res.status(200).json(
+      sizeDocuments.map((x) => createSizeViewModel(x)))
   } catch (err) { sendErrorResponse(err, res) }
 };
 
@@ -20,7 +22,7 @@ const fetch = async (req, res) => {
 
     if (foundSize === null) throw createSizeNotFoundError(sizeId);
 
-    res.status(200).json(foundSize)
+    res.status(200).json(createSizeViewModel(foundSize))
   } catch (err) { sendErrorResponse(err, res) }
 };
 

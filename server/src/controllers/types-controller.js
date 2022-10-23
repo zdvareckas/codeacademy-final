@@ -1,5 +1,6 @@
 const TypeModel = require('../model/type-model');
 const { createNotFoundError, sendErrorResponse } = require('../helpers/errors');
+const createTypeViewModel = require('../viewmodels/create-type-viewmodel');
 
 const createSuspensionNotFoundError = (typeId) => createNotFoundError(`Type #${typeId} not found`);
 
@@ -8,7 +9,8 @@ const fetchAll = async (req, res) => {
   try {
     const typesDocuments = await TypeModel.find()
 
-    res.status(200).json(typesDocuments)
+    res.status(200).json(
+      typesDocuments.map((x) => createTypeViewModel(x)))
   } catch (err) { sendErrorResponse(err, res) }
 };
 
@@ -20,7 +22,7 @@ const fetch = async (req, res) => {
 
     if (foundType === null) throw createSuspensionNotFoundError(typeId);
 
-    res.status(200).json(foundType)
+    res.status(200).json(createTypeViewModel(foundType))
   } catch (err) { sendErrorResponse(err, res) }
 };
 

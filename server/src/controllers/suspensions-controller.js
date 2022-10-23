@@ -1,5 +1,6 @@
 const SuspensionModel = require('../model/suspension-model');
 const { createNotFoundError, sendErrorResponse } = require('../helpers/errors');
+const createSuspensionViewModel = require('../viewmodels/create-suspension-viewmodel');
 
 const createSuspensionNotFoundError = (suspensionId) => createNotFoundError(`Suspension #${suspensionId} not found`);
 
@@ -8,7 +9,8 @@ const fetchAll = async (req, res) => {
   try {
     const suspensionDocuments = await SuspensionModel.find()
 
-    res.status(200).json(suspensionDocuments)
+    res.status(200).json(
+      suspensionDocuments.map((x) => createSuspensionViewModel(x)))
   } catch (err) { sendErrorResponse(err, res) }
 };
 
@@ -20,7 +22,7 @@ const fetch = async (req, res) => {
 
     if (foundSuspension === null) throw createSuspensionNotFoundError(suspensionId);
 
-    res.status(200).json(foundSuspension)
+    res.status(200).json(createSuspensionViewModel(foundSuspension))
   } catch (err) { sendErrorResponse(err, res) }
 };
 

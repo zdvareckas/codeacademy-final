@@ -1,5 +1,6 @@
 const CategoryModel = require('../model/category-model');
 const { createNotFoundError, sendErrorResponse } = require('../helpers/errors');
+const createCategoryViewModel = require('../viewmodels/create-category-viewmodel');
 
 const createCategoryNotFoundError = (categoryId) => createNotFoundError(`Category #${categoryId} not found`);
 
@@ -8,7 +9,9 @@ const fetchAll = async (req, res) => {
   try {
     const categoryDocuments = await CategoryModel.find()
 
-    res.status(200).json(categoryDocuments)
+    res.status(200).json(
+      categoryDocuments.map((x) => createCategoryViewModel(x))
+    )
   } catch (err) { sendErrorResponse(err, res) }
 };
 
@@ -20,7 +23,7 @@ const fetch = async (req, res) => {
 
     if (foundCategory === null) throw createCategoryNotFoundError(categoryId);
 
-    res.status(200).json(foundCategory)
+    res.status(200).json(createCategoryViewModel(foundCategory))
   } catch (err) { sendErrorResponse(err, res) }
 };
 
