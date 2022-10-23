@@ -26,10 +26,10 @@ const fetch = async (req, res) => {
 
   try {
     const foundEquipment = expand === 'all'
-      ? await EquipmentModel.find()
+      ? await EquipmentModel.findById(equipmentId)
         .populate('sizeId')
         .populate('categoryId')
-      : await EquipmentModel.find()
+      : await EquipmentModel.findById(equipmentId)
 
     if (foundEquipment === null) throw createEquipmentNotFoundError(equipmentId);
 

@@ -28,12 +28,12 @@ const fetch = async (req, res) => {
 
   try {
     const foundBike = expand === 'all'
-      ? await BikeModel.find()
+      ? await BikeModel.findById(bikeId)
         .populate('suspensionId')
         .populate('materialId')
         .populate('sizeId')
         .populate('typeId')
-      : await BikeModel.find()
+      : await BikeModel.findById(bikeId)
 
     if (foundBike === null) throw createBikeNotFoundError(bikeId);
 
