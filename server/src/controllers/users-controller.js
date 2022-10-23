@@ -30,21 +30,19 @@ const create = async (req, res) => {
   try {
     await UserModel.validateNew(newUserData);
     const {
+      fullname,
       email,
       password,
       role,
-      completedTasks,
-      failedTasks,
       img
     } = newUserData;
 
     const newUser = await UserModel.create({
+      fullname,
       email,
       password: await hashPassword(password),
       role,
-      completedTasks,
-      failedTasks,
-      img
+      img,
     })
 
     res.status(201).json(newUser)
@@ -58,22 +56,20 @@ const update = async (req, res) => {
   try {
     await UserModel.validateUpdate(userData);
     const {
+      fullname,
       email,
       password,
       role,
-      completedTasks,
-      failedTasks,
       img
     } = userData;
 
     const updatedUserDoc = await UserModel.findByIdAndUpdate(
       userId,
       {
+        fullname,
         email,
         password: password && await hashPassword(password),
         role,
-        completedTasks,
-        failedTasks,
         img
       },
       { new: true }
@@ -92,11 +88,10 @@ const replace = async (req, res) => {
   try {
     await UserModel.validateNew(requestData);
     const {
+      fullname,
       email,
       password,
       role,
-      completedTasks,
-      failedTasks,
       img,
     } = requestData;
 
@@ -106,11 +101,10 @@ const replace = async (req, res) => {
     const replacedUserDoc = await UserModel.findOneAndReplace(
       { id: userId },
       {
+        fullname,
         email,
         password: await hashPassword(password),
         role,
-        completedTasks,
-        failedTasks,
         img,
         createdAt: new Date(),
         updatedAt: new Date(),

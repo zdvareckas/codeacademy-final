@@ -1,41 +1,56 @@
 import * as React from 'react';
 import {
-  TextField, Button, Box, Typography,
+  TextField, Button, Box, Typography, Alert,
 } from '@mui/material';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
+import { useSearchParams } from 'react-router-dom';
 import AuthForm from '../../components/auth-form';
+import AuthContext from '../../store/auth/auth-context';
+import { authClearErrorsAction, createLoginThunkAction } from '../../store/auth/auth-actions';
+
+const initialValues = {
+  email: '',
+  password: '',
+};
+
+const validationSchema = yup.object({
+  email: yup.string()
+    .required('Required')
+    .email('Wrong E-mail format'),
+  password: yup.string()
+    .required('Required')
+    .min(8, 'Password is too short'),
+});
 
 const LoginPage = () => {
-  const initialValues = {
-    email: '',
-    password: '',
-  };
+  const { error, dispatch } = React.useContext(AuthContext);
 
-  const validationSchema = yup.object({
-    email: yup.string()
-      .required('Required')
-      .email('Wrong E-mail format'),
-    password: yup.string()
-      .required('Required')
-      .min(8, 'Password is too short'),
+  const [serachParams] = useSearchParams();
+
+  const onSubmitRef = React.useRef((credentials) => {
+    const redirect = serachParams.get('redirect');
+    dispatch(createLoginThunkAction(credentials, redirect));
+    // eslint-disable-next-line no-use-before-define
+    resetForm();
   });
-
-  const onSubmit = (values) => {
-    console.log(values);
-  };
 
   const {
     values, dirty, errors, touched, isValid,
-    handleSubmit, handleChange, handleBlur,
+    handleSubmit, handleChange, handleBlur, resetForm,
   } = useFormik({
     initialValues,
-    onSubmit,
+    onSubmit: onSubmitRef.current,
     validationSchema,
   });
 
   return (
     <Box>
+      {error && (
+        <Alert severity="error" onClose={() => dispatch(authClearErrorsAction)}>
+          {error}
+        </Alert>
+      )}
       <AuthForm
         btnDisabled={!dirty || !isValid}
         btnText="Login"
