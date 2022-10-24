@@ -3,28 +3,11 @@ import {
   Typography,
   Box,
   IconButton,
-  styled,
 } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
-import { CartItemDesc, CartImage } from '.';
-
-const Item = styled(Box)(({ theme }) => ({
-  position: 'relative',
-  display: 'flex',
-  padding: theme.spacing(1),
-  flexDirection: 'row',
-  justifyContent: 'space-between',
-  paddingBottom: theme.spacing(2),
-  borderBottom: `1px solid ${theme.palette.grey[400]}`,
-  [theme.breakpoints.up('xs')]: {
-    flexDirection: 'column',
-  },
-  [theme.breakpoints.up('md')]: {
-    flexDirection: 'row',
-  },
-}));
+import { CartItemDesc, CartImage, Item } from '.';
 
 const CartItem = ({ item, removeFromCart, updateCartItemCount }) => (
   <Item key={item.id}>
@@ -41,15 +24,15 @@ const CartItem = ({ item, removeFromCart, updateCartItemCount }) => (
           price={item?.price}
           size={item?.size?.label}
         />
-
       </Box>
     </Box>
 
     <Box sx={{
+      position: 'relative',
       display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'space-around',
-      alignItems: 'center',
+      flexDirection: { xs: 'row', lg: 'column' },
+      justifyContent: 'space-between',
+      minHeight: '100%',
     }}
     >
       <Typography
@@ -61,11 +44,11 @@ const CartItem = ({ item, removeFromCart, updateCartItemCount }) => (
         {(Number(item.price) * item.amount).toFixed(2)}
       </Typography>
 
-      <Box>
+      <Box sx={{ display: 'flex', gap: 2 }}>
+
         <Box sx={{
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'space-between',
           border: 1,
           borderRadius: 5,
           borderColor: 'grey.400',
@@ -87,17 +70,19 @@ const CartItem = ({ item, removeFromCart, updateCartItemCount }) => (
           >
             <RemoveIcon />
           </IconButton>
+
         </Box>
 
         <IconButton
-          sx={{ position: 'absolute', right: 0, bottom: 5 }}
+          size="large"
           onClick={() => {
             removeFromCart(item.id);
           }}
         >
-          <DeleteIcon />
+          <DeleteIcon
+            color="error"
+          />
         </IconButton>
-
       </Box>
 
     </Box>

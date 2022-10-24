@@ -11,7 +11,7 @@ import { useNavigate } from 'react-router-dom';
 import CartItem from './components/cart-item';
 import useUserCartContext from '../../hooks/useCartContext';
 import useAuthContext from '../../hooks/useAuthContext';
-import CartFooter from './components/cart-footer';
+import { CartFooter } from './components';
 
 const CartPage = () => {
   const { cart, removeFromCart, updateCartItemCount } = useUserCartContext();
