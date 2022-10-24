@@ -44,6 +44,7 @@ const DesktopNav = ({ handleDrawerToggle, pages }) => {
         backgroundColor: `${homePage ? 'common.white' : 'pallete.primary'}`,
         color: `${homePage ? 'black' : 'common.white'}`,
         height: '64px',
+        zIndex: 9000,
       }}
     >
       <Toolbar

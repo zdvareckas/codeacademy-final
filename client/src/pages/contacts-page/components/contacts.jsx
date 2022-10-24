@@ -34,7 +34,7 @@ const Contacts = () => (
     gap: 1,
   }}
   >
-    <Typography variant="body2" align="left">
+    <Typography variant="h6" align="left">
       Contact Information
     </Typography>
     {contacts.map(({ id, text, icon }) => (

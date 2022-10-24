@@ -3,12 +3,10 @@ import { createTheme } from '@mui/material/styles';
 const theme = createTheme({
   palette: {
     background: {
-      default: '#fafafa',
+      default: '#e8e6e6',
     },
-  },
-  mixins: {
-    navbar: {
-      height: '64px',
+    primary: {
+      main: '#0D1B2A',
     },
   },
 });

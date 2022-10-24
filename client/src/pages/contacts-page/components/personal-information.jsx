@@ -4,6 +4,7 @@ import {
   Button,
   Divider,
   TextField,
+  Typography,
 } from '@mui/material';
 
 const PersonalInformation = ({
@@ -15,7 +16,21 @@ const PersonalInformation = ({
   handleChange,
   handleBlur,
 }) => (
-  <>
+  <Box sx={{
+    display: 'flex',
+    flexDirection: 'column',
+    gap: 1,
+  }}
+  >
+    <Typography
+      variant="h3"
+      textAlign="center"
+      fontWeight="bold"
+      color="grey.600"
+    >
+      Ask us!
+    </Typography>
+
     <Box
       sx={{
         display: 'flex',
@@ -26,7 +41,6 @@ const PersonalInformation = ({
       <TextField
         fullWidth
         label="Name"
-        variant="filled"
         name="firstName"
         value={values.firstName}
         onChange={handleChange}
@@ -37,7 +51,6 @@ const PersonalInformation = ({
       <TextField
         fullWidth
         label="Surname"
-        variant="filled"
         name="surname"
         value={values.surname}
         onChange={handleChange}
@@ -49,7 +62,6 @@ const PersonalInformation = ({
     <TextField
       fullWidth
       label="E-mail"
-      variant="filled"
       name="email"
       value={values.email}
       onChange={handleChange}
@@ -60,7 +72,6 @@ const PersonalInformation = ({
     <TextField
       fullWidth
       label="Phone number"
-      variant="filled"
       name="phoneNumber"
       type="number"
       value={values.phoneNumber}
@@ -73,7 +84,6 @@ const PersonalInformation = ({
     <TextField
       fullWidth
       label="Question"
-      variant="filled"
       name="question"
       value={values.question}
       onChange={handleChange}
@@ -81,6 +91,7 @@ const PersonalInformation = ({
       error={touched.question && Boolean(errors.question)}
       helperText={touched.question && errors.question}
     />
+
     <Button
       type="submit"
       variant="contained"
@@ -90,7 +101,7 @@ const PersonalInformation = ({
       Contact..
     </Button>
     <Divider />
-  </>
+  </Box>
 );
 
 export default PersonalInformation;

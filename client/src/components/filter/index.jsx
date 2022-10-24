@@ -45,15 +45,17 @@ const Filter = ({ handleReset, children }) => {
           position: 'relative',
           display: `${filterOpen ? 'flex' : 'none'}`,
         }}
-        elevation={0}
         PaperProps={{
           sx: {
             position: { lg: 'static' },
-            alignSelf: 'start',
             gap: 5,
-            p: 4,
+            py: 5,
+            px: 1,
             width: 300,
-            minHeight: '71vh',
+            backgroundColor: {
+              lg: 'transparent',
+            },
+            border: 0,
           },
         }}
       >
@@ -72,6 +74,7 @@ const Filter = ({ handleReset, children }) => {
           variant="contained"
           color="error"
           onClick={handleReset}
+
         >
           Reset filters
         </Button>

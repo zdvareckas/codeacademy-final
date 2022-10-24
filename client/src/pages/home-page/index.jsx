@@ -50,7 +50,6 @@ const HomePage = () => {
             EQUIPMENT
           </Home.Btn>
         </Box>
-
       </Container>
     </Box>
   );
