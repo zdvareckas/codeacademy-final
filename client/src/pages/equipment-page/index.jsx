@@ -25,7 +25,7 @@ const EquipmentPage = () => {
   return (
     <>
       <Banner
-        img="./equipment-banner.png"
+        img="../equipment-banner.png"
         title="EQUIPMENT"
       />
       <Container sx={{
