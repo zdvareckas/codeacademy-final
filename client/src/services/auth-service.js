@@ -37,7 +37,7 @@ const register = async (data) => {
 };
 
 const auth = async (token) => {
-  const response = await fetch(`${domain}:/auth/`, {
+  const response = await fetch(`${domain}/auth/`, {
     method: 'POST',
     headers: {
       Accept: 'application/json',
