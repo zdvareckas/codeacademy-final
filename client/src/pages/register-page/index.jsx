@@ -8,7 +8,7 @@ import {
 } from '@mui/material';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
-import AuthForm from '../../components/auth-form';
+import { AuthForm } from '../../components';
 import AuthService from '../../services/auth-service';
 
 const RegisterPage = () => {

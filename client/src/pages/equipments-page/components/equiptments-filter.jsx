@@ -2,7 +2,7 @@ import React from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { sizesService } from '../../../services/sizes-service';
 import { categoriesService } from '../../../services/category-service';
-import Filter from '../../../components/filter';
+import { Filter } from '../../../components';
 import FilterField from '../../../components/filter/components/filter-field';
 
 const EquiptmentsFilter = () => {

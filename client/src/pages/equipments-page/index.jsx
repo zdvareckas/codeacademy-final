@@ -2,10 +2,8 @@ import React from 'react';
 import { Box } from '@mui/material';
 import { useSearchParams } from 'react-router-dom';
 import { equiptmentService } from '../../services/equiptment-service';
-import ResponsiveItemsGrid from '../../components/responsive-items-grid';
-import ShopItem from '../../components/shop-item';
+import { ResponsiveItemsGrid, Banner, ShopItem } from '../../components';
 import EquiptmentsFilter from './components/equiptments-filter';
-import Banner from '../../components/banner';
 import useFilterContext from '../../hooks/useFilterContext';
 
 const EquipmentsPage = () => {

@@ -1,5 +1,12 @@
 import { Box, Paper, styled } from '@mui/material';
 
+export { default as Navbar } from './navbar';
+export { default as Filter } from './filter';
+export { default as Banner } from './banner';
+export { default as AuthForm } from './auth-form';
+export { default as ResponsiveItemsGrid } from './responsive-items-grid';
+export { default as ShopItem } from './shop-item';
+
 export const ScrollableImageContainer = styled(Box)(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',

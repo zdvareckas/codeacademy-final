@@ -4,7 +4,7 @@ import { suspensionsService } from '../../../services/suspensions-service';
 import { materialsService } from '../../../services/materials-service';
 import { sizesService } from '../../../services/sizes-service';
 import { typesService } from '../../../services/types-service';
-import Filter from '../../../components/filter';
+import { Filter } from '../../../components';
 import FilterField from '../../../components/filter/components/filter-field';
 
 const BikesFilter = () => {

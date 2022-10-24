@@ -5,7 +5,7 @@ import {
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { useSearchParams } from 'react-router-dom';
-import AuthForm from '../../components/auth-form';
+import { AuthForm } from '../../components';
 import { authClearErrorsAction, createLoginThunkAction } from '../../store/auth/auth-actions';
 import useAuthContext from '../../hooks/useAuthContext';
 

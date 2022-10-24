@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box } from '@mui/material';
 import { Outlet } from 'react-router-dom';
-import Navbar from '../components/navbar';
+import { Navbar } from '../components';
 
 const AuthLayout = () => (
   <Box sx={{
