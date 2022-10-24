@@ -70,7 +70,7 @@ const ProfilePage = () => {
           >
 
             <ProfileNavBtn path="bikes" />
-            <ProfileNavBtn path="equipments" />
+            <ProfileNavBtn path="equipment" />
             <ProfileNavBtn path="cart" />
           </Box>
         </Box>
