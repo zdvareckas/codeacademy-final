@@ -40,6 +40,7 @@ export const ScrollableImageContainer = styled(Box)(({ theme }) => ({
 export const ItemContent = styled(Paper)(({ theme }) => ({
   position: 'relative',
   display: 'flex',
+  minHeight: '500px',
   flexDirection: 'column',
   width: { xs: '100%', md: '40%' },
   [theme.breakpoints.up('xs')]: {
