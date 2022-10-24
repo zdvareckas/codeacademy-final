@@ -20,7 +20,7 @@ const ErrorPage = () => {
       gap: 5,
     }}
     >
-      <Background component="img" src="./hero.jpg" />
+      <Background component="img" src="../hero.jpg" />
       <Typography
         variant="h1"
         color="grey.200"

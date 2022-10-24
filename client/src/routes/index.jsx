@@ -32,8 +32,8 @@ const PageRoutes = () => (
         <Route path="login" element={<RequireVisitor><LoginPage /></RequireVisitor>} />
         <Route path="register" element={<RequireVisitor><RegisterPage /></RequireVisitor>} />
       </Route>
-      <Route path="*" element={<ErrorPage />} />
     </Route>
+    <Route path="*" element={<ErrorPage />} />
   </Routes>
 );
 
