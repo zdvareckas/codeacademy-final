@@ -8,7 +8,7 @@ import {
 import { useNavigate } from 'react-router-dom';
 
 const ShopItem = ({
-  id, title, images, price, itemType,
+  id, title, images, price, itemType, size,
 }) => {
   const navigate = useNavigate();
 
@@ -31,6 +31,20 @@ const ShopItem = ({
         src={images[0]}
         sx={{ objectFit: 'contain' }}
       />
+      <Box>
+        <Typography
+          textAlign="center"
+          sx={{
+            backgroundColor: 'primary.main',
+            color: 'common.white',
+            width: 30,
+            pt: 0.5,
+          }}
+        >
+          {size}
+        </Typography>
+      </Box>
+
       <Box sx={{
         display: 'flex',
         flexDirection: 'column',

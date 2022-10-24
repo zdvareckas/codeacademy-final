@@ -44,7 +44,7 @@ const BikesPage = () => {
         <BikesFilter />
         <ResponsiveItemsGrid filtersOpen={filterOpen}>
           {bikes.map(({
-            id, title, price, images,
+            id, title, price, images, size,
           }) => (
             <ShopItem
               key={id}
@@ -52,6 +52,7 @@ const BikesPage = () => {
               title={title}
               images={images}
               price={price}
+              size={size.label}
               itemType="bike"
             />
           ))}
