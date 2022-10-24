@@ -19,6 +19,7 @@ const UserMenu = ({ anchorEl, handleClose }) => {
       <MenuItem onClick={() => navigate('/profile')}>Profile</MenuItem>
       <MenuItem onClick={() => {
         dispatch(authLogoutAction);
+        localStorage.removeItem('token');
         // eslint-disable-next-line no-restricted-globals
         location.reload();
       }}
