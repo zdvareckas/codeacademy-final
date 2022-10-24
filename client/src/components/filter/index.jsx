@@ -19,7 +19,8 @@ const Filter = ({ handleReset, children }) => {
           position: 'absolute',
           display: 'flex',
           alignItems: 'center',
-          right: { xs: '6%', md: 100 },
+          right: { xs: 10, lg: 100 },
+          top: 5,
         }}
       >
         <Button

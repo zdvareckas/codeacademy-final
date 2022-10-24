@@ -5,7 +5,10 @@ import { Navbar } from '../components';
 
 const AuthLayout = () => (
   <Box sx={{
-    display: 'flex', justifyContent: 'center', alignItems: 'center', mt: 30,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    mt: 30,
   }}
   >
     <Navbar />

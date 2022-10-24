@@ -7,7 +7,7 @@ const Footer = () => {
 
   return (
     <Box sx={{
-      display: `${location.pathname === '/' ? 'none' : 'flex'} `,
+      display: `${(location.pathname === '/') ? 'none' : 'flex'}`,
       justifyContent: 'center',
       p: 2,
       backgroundColor: 'primary.main',

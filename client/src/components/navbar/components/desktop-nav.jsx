@@ -108,7 +108,7 @@ const DesktopNav = ({ handleDrawerToggle, pages }) => {
 
           <IconButton
             onClick={() => navigate('/cart')}
-            sx={{ position: 'relative', color: 'inherit' }}
+            sx={{ color: 'inherit' }}
           >
             <ShoppingCartIcon />
           </IconButton>

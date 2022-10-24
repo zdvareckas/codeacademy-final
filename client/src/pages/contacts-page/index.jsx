@@ -52,7 +52,7 @@ const ContactsPage = () => {
     <Box sx={{
       display: 'flex',
       justifyContent: 'center',
-      mt: 15,
+      my: '145px',
     }}
     >
       <Form component="form" onSubmit={handleSubmit}>

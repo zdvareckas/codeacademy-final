@@ -4,7 +4,10 @@ import { Outlet } from 'react-router-dom';
 import { Footer, Navbar } from '../components';
 
 const MainLayout = () => (
-  <Box sx={{ paddingTop: 8 }}>
+  <Box sx={{
+    mt: 8,
+  }}
+  >
     <Navbar />
     <Outlet />
     <Footer />

@@ -18,7 +18,7 @@ const ShopItem = ({
       sx={{
         display: 'flex',
         flexDirection: 'column',
-        gap: 2,
+        gap: 1,
         backgroundColor: '#F3F0F3',
         p: 1,
         border: 3,
