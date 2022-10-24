@@ -71,7 +71,7 @@ const CartPage = () => {
               variant="contained"
               onClick={() => navigate('/bikes')}
             >
-              Back to shop
+              Fill the cart !
             </Button>
           </Box>
         )}

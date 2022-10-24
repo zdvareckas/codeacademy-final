@@ -55,6 +55,11 @@ const ProfilePage = () => {
             {' '}
             {user.email}
           </Typography>
+          <Typography>
+            Your current role is:
+            {' '}
+            {user.role}
+          </Typography>
 
           <Box sx={{
             display: 'flex',
