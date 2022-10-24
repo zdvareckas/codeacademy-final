@@ -14,6 +14,7 @@ const FilterField = ({
       SelectDisplayProps={{
         sx: {
           fontSize: '20px',
+          border: 5,
         },
       }}
       onChange={onChange}

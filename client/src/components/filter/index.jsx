@@ -56,6 +56,7 @@ const Filter = ({ handleReset, children }) => {
               lg: 'transparent',
             },
             border: 0,
+            mt: { xs: 8, lg: '0' },
           },
         }}
       >
@@ -74,7 +75,6 @@ const Filter = ({ handleReset, children }) => {
           variant="contained"
           color="error"
           onClick={handleReset}
-
         >
           Reset filters
         </Button>
