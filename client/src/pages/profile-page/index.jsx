@@ -19,12 +19,13 @@ const ProfilePage = () => {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
+
       mt: 10,
     }}
     >
       <Paper sx={{
         display: 'flex',
-        flexDirection: 'row',
+        flexDirection: { xs: 'column', md: 'row' },
         gap: 3,
         p: 1,
       }}
@@ -32,7 +33,11 @@ const ProfilePage = () => {
         <Box
           component="img"
           src={user.img === '' ? './no-img.jpg' : user.img}
-          sx={{ width: 300, borderRadius: '25%' }}
+          sx={{
+            alignSelf: 'center',
+            width: 300,
+            borderRadius: '25%',
+          }}
         />
         <Box sx={{
           display: 'flex',
@@ -68,7 +73,6 @@ const ProfilePage = () => {
             gap: 1,
           }}
           >
-
             <ProfileNavBtn path="bikes" />
             <ProfileNavBtn path="equipment" />
             <ProfileNavBtn path="cart" />
