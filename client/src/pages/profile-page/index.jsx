@@ -1,14 +1,16 @@
 import React from 'react';
 import {
-  Box, Button, Container, Paper, TextField, Typography,
+  Box,
+  Container,
+  Paper,
+  Typography,
 } from '@mui/material';
 import { Navigate } from 'react-router-dom';
 import useAuthContext from '../../hooks/useAuthContext';
-import useUserCartContext from '../../hooks/useCartContext';
+import ProfileNavBtn from './components/profile-nav-btn';
 
 const ProfilePage = () => {
   const { user } = useAuthContext();
-  const { cart } = useUserCartContext();
 
   if (user === null) return <Navigate to="auth/login?redirect=/profile" />;
 
@@ -21,7 +23,10 @@ const ProfilePage = () => {
     }}
     >
       <Paper sx={{
-        display: 'flex', flexDirection: 'column', gap: 3, p: 1,
+        display: 'flex',
+        flexDirection: 'row',
+        gap: 3,
+        p: 1,
       }}
       >
         <Box
@@ -29,7 +34,13 @@ const ProfilePage = () => {
           src={user.img === '' ? './no-img.jpg' : user.img}
           sx={{ width: 300, borderRadius: '25%' }}
         />
-        <Box>
+        <Box sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          minHeight: '100%',
+          gap: 2,
+        }}
+        >
           <Typography
             variant="h4"
           >
@@ -38,41 +49,25 @@ const ProfilePage = () => {
             {user.fullname}
             !
           </Typography>
-          <Typography>
-            Your cart currently has
-            {' '}
-            {cart.length}
-            {' '}
-            items
-          </Typography>
 
           <Typography>
             Your current email is:
             {' '}
             {user.email}
           </Typography>
-        </Box>
 
-        <Box
-          component="form"
-          sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}
-        >
-          <Typography>Update account information:</Typography>
-          <TextField
-            label="Email"
-            name="email"
-          />
-          <TextField
-            label="Fullname"
-            name="fullname"
-          />
-          <Button
-            variant="contained"
-            color="success"
-            type="submit"
+          <Box sx={{
+            display: 'flex',
+            alignItems: 'end',
+            height: '100%',
+            gap: 1,
+          }}
           >
-            Update
-          </Button>
+
+            <ProfileNavBtn path="bikes" />
+            <ProfileNavBtn path="equipments" />
+            <ProfileNavBtn path="cart" />
+          </Box>
         </Box>
 
       </Paper>
