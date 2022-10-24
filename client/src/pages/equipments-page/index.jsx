@@ -26,7 +26,10 @@ const EquipmentsPage = () => {
         flexDirection: 'column',
       }}
     >
-      <Banner />
+      <Banner
+        img="./equipment-banner.png"
+        title="EQUIPMENT"
+      />
       <Box sx={{
         position: 'relative',
         display: 'flex',

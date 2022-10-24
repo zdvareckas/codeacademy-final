@@ -26,7 +26,11 @@ const BikesPage = () => {
         flexDirection: 'column',
       }}
     >
-      <Banner />
+      <Banner
+        img="./bikes-banner.jpg"
+        title="BIKES"
+      />
+
       <Box sx={{
         position: 'relative',
         display: 'flex',

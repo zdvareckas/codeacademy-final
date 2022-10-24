@@ -24,7 +24,10 @@ const EquipmentPage = () => {
 
   return (
     <>
-      <Banner />
+      <Banner
+        img="./equipment-banner.png"
+        title="EQUIPMENT"
+      />
       <Container sx={{
         display: 'flex',
         flexDirection: { xs: 'column', md: 'row' },

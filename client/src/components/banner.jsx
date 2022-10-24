@@ -1,17 +1,32 @@
 import React from 'react';
-import { Box } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 
-const Banner = () => (
+const Banner = ({ img, title }) => (
   <Box
-    component="img"
-    src="https://assets.specialized.com/i/specialized/plp-banner_Bikes?$hybris-category-hero$"
     sx={{
-      height: 200,
-      width: '100%',
-      objectFit: 'cover',
-      objectPosition: 'bottom',
+      position: 'relative',
     }}
-  />
+  >
+    <Box
+      component="img"
+      src={img}
+      sx={{
+        height: 200,
+        width: '100%',
+        objectFit: 'cover',
+        objectPosition: `${title === 'BIKES' ? 'top' : 'center'}`,
+      }}
+    />
+    <Typography
+      variant="h3"
+      color="common.white"
+      fontWeight="bold"
+      sx={{ position: 'absolute', bottom: 90, left: 10 }}
+    >
+      {title}
+    </Typography>
+
+  </Box>
 );
 
 export default Banner;

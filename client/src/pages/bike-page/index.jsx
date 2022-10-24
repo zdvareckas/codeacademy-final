@@ -28,7 +28,11 @@ const BikePage = () => {
 
   return (
     <>
-      <Banner />
+      <Banner
+        img="./bikes-banner.jpg"
+        title="BIKES"
+      />
+
       <Container sx={{
         display: 'flex',
         flexDirection: { xs: 'column', md: 'row' },
