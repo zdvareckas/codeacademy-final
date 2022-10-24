@@ -19,7 +19,6 @@ const ProfilePage = () => {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-
       mt: 10,
     }}
     >
@@ -65,7 +64,6 @@ const ProfilePage = () => {
             {' '}
             {user.role}
           </Typography>
-
           <Box sx={{
             display: 'flex',
             alignItems: 'end',

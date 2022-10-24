@@ -7,6 +7,16 @@ export { default as AuthForm } from './auth-form';
 export { default as ResponsiveItemsGrid } from './responsive-items-grid';
 export { default as ShopItem } from './shop-item';
 
+export const Background = styled(Box)({
+  position: 'absolute',
+  top: 0,
+  left: 0,
+  height: '100%',
+  width: '100%',
+  objectFit: 'cover',
+  zIndex: '-1',
+});
+
 export const ScrollableImageContainer = styled(Box)(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',

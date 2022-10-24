@@ -71,33 +71,9 @@ const checkEmail = async (req, res) => {
   }
 };
 
-const updateProfile = async (req, res) => {
-  const requestData = {
-    fullname: req.body.fullname,
-    email: req.body.email,
-  };
-
-  console.log(requestData)
-
-  try {
-    await UserModel.validateUpdate(requestData);
-
-    if (requestData.fullname) req.authUser.fullname = requestData.fullname;
-    if (requestData.email) req.authUser.email = requestData.email;
-
-    await req.authUser.save();
-
-    res.status(200).json({
-      user: createUserViewModel(req.authUser),
-      token: createToken({ email: req.authUser.email, role: req.authUser.role }),
-    });
-  } catch (err) { sendErrorResponse(err, res); }
-};
-
 module.exports = {
   login,
   register,
   auth,
   checkEmail,
-  updateProfile,
 };

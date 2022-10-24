@@ -19,8 +19,8 @@ const ShopItem = ({
         display: 'flex',
         flexDirection: 'column',
         gap: 1,
-        backgroundColor: '#F3F0F3',
         p: 1,
+        backgroundColor: '#F3F0F3',
         border: 3,
         borderStyle: 'dashed',
         borderColor: 'grey.400',
@@ -29,7 +29,6 @@ const ShopItem = ({
       <Box
         component="img"
         src={images[0]}
-        sx={{ objectFit: 'contain' }}
       />
       <Box>
         <Typography

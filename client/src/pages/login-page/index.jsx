@@ -28,7 +28,7 @@ const LoginPage = () => {
 
   const [serachParams] = useSearchParams();
 
-  const onSubmitRef = React.useRef((credentials) => {
+  const onSubmit = React.useRef((credentials) => {
     const redirect = serachParams.get('redirect');
     dispatch(createLoginThunkAction(credentials, redirect));
     // eslint-disable-next-line no-use-before-define
@@ -40,7 +40,7 @@ const LoginPage = () => {
     handleSubmit, handleChange, handleBlur, resetForm,
   } = useFormik({
     initialValues,
-    onSubmit: onSubmitRef.current,
+    onSubmit,
     validationSchema,
   });
 

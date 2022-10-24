@@ -78,6 +78,7 @@ const RegisterPage = () => {
       btnDisabled={!dirty || !isValid}
     >
       <Typography variant="h4" textAlign="center">Registration</Typography>
+
       <TextField
         name="fullname"
         label="Fullname"
@@ -87,6 +88,7 @@ const RegisterPage = () => {
         error={touched.fullname && Boolean(errors.fullname)}
         helperText={touched.fullname && errors.fullname}
       />
+
       <Box sx={{ display: 'flex', gap: 1 }}>
         <TextField
           name="email"
@@ -130,7 +132,6 @@ const RegisterPage = () => {
           error={touched.passwordConfirmation && Boolean(errors.passwordConfirmation)}
           helperText={touched.passwordConfirmation && errors.passwordConfirmation}
         />
-
       </Box>
 
       <TextField

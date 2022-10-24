@@ -5,6 +5,7 @@ import {
   Typography,
 } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import { Background } from '../../components';
 import * as Home from './components';
 
 const HomePage = () => {
@@ -12,7 +13,7 @@ const HomePage = () => {
 
   return (
     <Box>
-      <Home.Background component="img" src="/hero.jpg" />
+      <Background component="img" src="/hero.jpg" />
       <Container
         sx={{
           display: 'flex',

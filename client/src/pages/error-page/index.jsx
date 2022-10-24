@@ -5,7 +5,7 @@ import {
   Typography,
 } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import { Background } from '../home-page/components';
+import { Background } from '../../components';
 
 const ErrorPage = () => {
   const navigate = useNavigate();
