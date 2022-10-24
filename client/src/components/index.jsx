@@ -6,7 +6,6 @@ export { default as Banner } from './banner';
 export { default as AuthForm } from './auth-form';
 export { default as ResponsiveItemsGrid } from './responsive-items-grid';
 export { default as ShopItem } from './shop-item';
-export { default as Footer } from './footer';
 
 export const ScrollableImageContainer = styled(Box)(({ theme }) => ({
   display: 'flex',

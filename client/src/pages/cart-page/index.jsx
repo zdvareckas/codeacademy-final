@@ -34,12 +34,12 @@ const CartPage = () => {
       justifyContent: 'center',
       alignItems: 'center',
       flexDirection: 'column',
+      my: 20,
     }}
     >
       <Paper sx={{
         position: 'relative',
         width: '80%',
-        my: 20,
         minHeight: 300,
       }}
       >

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box } from '@mui/material';
 import { Outlet } from 'react-router-dom';
-import { Footer, Navbar } from '../components';
+import { Navbar } from '../components';
 
 const MainLayout = () => (
   <Box sx={{
@@ -10,7 +10,6 @@ const MainLayout = () => (
   >
     <Navbar />
     <Outlet />
-    <Footer />
   </Box>
 );
 
