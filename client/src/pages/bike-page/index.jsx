@@ -65,7 +65,7 @@ const BikePage = () => {
             {bike.price}
           </Typography>
 
-          <Typography variant="h6">Available Sizes:</Typography>
+          <Typography variant="h6">Available Size:</Typography>
           <Box sx={{
             display: 'grid',
             gridTemplateColumns: 'repeat(3, 100px)',
@@ -114,7 +114,7 @@ const BikePage = () => {
             }}
             disabled={Boolean(cart.find((x) => x.id === bike.id))}
           >
-            ADD TO CART
+            {cart.find((x) => x.id === bike.id) ? 'In cart' : 'ADD TO CART'}
           </Button>
         </ItemContent>
 

@@ -60,18 +60,3 @@ export const createAuthInitializeThunkAction = (token) => async (dispatch) => {
     dispatch(authInitializedAction);
   }
 };
-
-export const createAuthUpdateProfileThunkAction = (formData) => async (dispatch, getState) => {
-  const { token } = getState();
-
-  try {
-    dispatch(authLoadingAction);
-    const authData = await AuthService.updateProfile({ formData, token });
-    const authSuccessAction = createAuthSuccessAction({ ...authData });
-
-    dispatch(authSuccessAction);
-  } catch (err) {
-    const authFailureAction = createAuthFailureAction(err.message);
-    dispatch(authFailureAction);
-  }
-};

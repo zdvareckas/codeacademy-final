@@ -58,6 +58,7 @@ const BikesPage = () => {
           ))}
 
         </ResponsiveItemsGrid>
+
       </Box>
 
     </Box>

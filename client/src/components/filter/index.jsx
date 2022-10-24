@@ -20,7 +20,6 @@ const Filter = ({ handleReset, children }) => {
           display: 'flex',
           alignItems: 'center',
           right: { xs: '6%', md: 100 },
-          top: 10,
         }}
       >
         <Button

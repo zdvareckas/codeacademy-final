@@ -94,7 +94,7 @@ const EquipmentPage = () => {
             }}
             disabled={Boolean(cart.find((x) => x.id === equipment.id))}
           >
-            ADD TO CART
+            {cart.find((x) => x.id === equipment.id) ? 'In cart' : 'ADD TO CART'}
           </Button>
         </ItemContent>
       </Container>
