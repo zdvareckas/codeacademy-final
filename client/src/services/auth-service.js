@@ -1,5 +1,7 @@
+const domain = process.env.REACT_APP_SERVER_DOMAIN;
+
 const login = async (credetials) => {
-  const response = await fetch('http://localhost:2566/auth/login', {
+  const response = await fetch(`${domain}/auth/login`, {
     method: 'POST',
     headers: {
       Accept: 'application/json',
@@ -17,7 +19,7 @@ const login = async (credetials) => {
 };
 
 const register = async (data) => {
-  const response = await fetch('http://localhost:2566/auth/register', {
+  const response = await fetch(`${domain}/auth/register`, {
     method: 'POST',
     headers: {
       Accept: 'application/json',
@@ -35,7 +37,7 @@ const register = async (data) => {
 };
 
 const auth = async (token) => {
-  const response = await fetch('http://localhost:/auth/', {
+  const response = await fetch(`${domain}:/auth/`, {
     method: 'POST',
     headers: {
       Accept: 'application/json',
@@ -53,7 +55,7 @@ const auth = async (token) => {
 };
 
 const checkEmail = async (email) => {
-  const response = await fetch('http://localhost:2566/auth/check-email', {
+  const response = await fetch(`${domain}/auth/check-email`, {
     method: 'POST',
     headers: {
       Accept: 'application/json',
@@ -71,29 +73,11 @@ const checkEmail = async (email) => {
   return responseData.emailAvailable;
 };
 
-const updateProfile = async ({ formData, token }) => {
-  const response = await fetch('http://localhost:2566/auth/update-profile', {
-    method: 'PATCH',
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-    body: formData,
-  });
-
-  const authData = await response.json();
-
-  if (response.status >= 400) {
-    throw new Error(authData.message);
-  }
-
-  return authData;
-};
 const AuthService = {
   auth,
   login,
   register,
   checkEmail,
-  updateProfile,
 };
 
 export default AuthService;
