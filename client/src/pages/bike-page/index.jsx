@@ -84,7 +84,7 @@ const BikePage = () => {
 
           <Typography
             variant="body2"
-            sx={{ width: { xs: '100%', md: '60%' } }}
+            sx={{ width: { xs: '100%', md: '90%' } }}
           >
             {bike.description}
           </Typography>

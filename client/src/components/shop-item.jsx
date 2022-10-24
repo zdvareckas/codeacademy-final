@@ -20,6 +20,7 @@ const ShopItem = ({
         flexDirection: 'column',
         gap: 2,
         backgroundColor: '#F3F0F3',
+        p: 1,
         border: 3,
         borderStyle: 'dashed',
         borderColor: 'grey.400',
