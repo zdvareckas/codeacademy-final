@@ -2,7 +2,7 @@ import React from 'react';
 import { Menu, MenuItem } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
-const AuthMenu = ({ anchorEl, handleClose }) => {
+const VisitorMenu = ({ anchorEl, handleClose }) => {
   const navigate = useNavigate();
   const open = Boolean(anchorEl);
 
@@ -16,12 +16,16 @@ const AuthMenu = ({ anchorEl, handleClose }) => {
       anchorEl={anchorEl}
       open={open}
       onClose={handleClose}
-      sx={{ mt: 1.5 }}
+      PaperProps={{
+        sx: {
+          p: 1,
+        },
+      }}
     >
-      <MenuItem onClick={() => { handleNavigate('login'); }}>LOGIN</MenuItem>
-      <MenuItem onClick={() => { handleNavigate('register'); }}>REGISTER</MenuItem>
+      <MenuItem onClick={() => { handleNavigate('login'); }}>Login</MenuItem>
+      <MenuItem onClick={() => { handleNavigate('register'); }}>Register</MenuItem>
     </Menu>
   );
 };
 
-export default AuthMenu;
+export default VisitorMenu;

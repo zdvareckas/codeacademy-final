@@ -14,9 +14,17 @@ const UserMenu = ({ anchorEl, handleClose }) => {
       anchorEl={anchorEl}
       open={open}
       onClose={handleClose}
-      sx={{ mt: 1.5 }}
+      PaperProps={{
+        sx: {
+          px: 3,
+        },
+      }}
     >
-      <MenuItem onClick={() => navigate('/profile')}>Profile</MenuItem>
+      <MenuItem
+        onClick={() => navigate('/profile')}
+      >
+        Profile
+      </MenuItem>
       <MenuItem onClick={() => {
         dispatch(authLogoutAction);
         localStorage.removeItem('token');

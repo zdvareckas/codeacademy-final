@@ -13,7 +13,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import DirectionsBikeIcon from '@mui/icons-material/DirectionsBike';
 import PersonIcon from '@mui/icons-material/Person';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import { Link, AuthMenu, UserMenu } from '.';
+import { Link, VisitorMenu, UserMenu } from '.';
 import useUserCartContext from '../../../hooks/useCartContext';
 import useAuthContext from '../../../hooks/useAuthContext';
 
@@ -100,7 +100,7 @@ const DesktopNav = ({ handleDrawerToggle, pages }) => {
           )}
 
           {!loggedIn && (
-            <AuthMenu
+            <VisitorMenu
               anchorEl={anchorEl}
               handleClose={handleClose}
             />

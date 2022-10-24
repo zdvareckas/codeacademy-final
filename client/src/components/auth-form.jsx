@@ -1,5 +1,5 @@
-import { Button, Paper } from '@mui/material';
 import React from 'react';
+import { Button, Paper } from '@mui/material';
 
 const AuthForm = ({
   btnText,

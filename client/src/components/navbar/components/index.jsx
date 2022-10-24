@@ -1,7 +1,7 @@
 import { styled } from '@mui/material';
 import { NavLink } from 'react-router-dom';
 
-export { default as AuthMenu } from './auth-menu';
+export { default as VisitorMenu } from './visitor-menu';
 export { default as UserMenu } from './user-menu';
 
 export const Link = styled(NavLink)(({ theme }) => ({
