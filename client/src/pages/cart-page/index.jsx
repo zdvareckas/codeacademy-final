@@ -10,10 +10,23 @@ import {
 import { useNavigate } from 'react-router-dom';
 import CartItem from './components/cart-item';
 import useUserCartContext from '../../hooks/useCartContext';
+import useAuthContext from '../../hooks/useAuthContext';
+import CartFooter from './components/cart-footer';
 
 const CartPage = () => {
   const { cart, removeFromCart, updateCartItemCount } = useUserCartContext();
+  const { user, loggedIn } = useAuthContext();
   const navigate = useNavigate();
+
+  const handleCheckout = () => {
+    console.log({
+      user: {
+        fullname: user.fullname,
+        email: user.email,
+      },
+      cart,
+    });
+  };
 
   return (
     <Container sx={{
@@ -76,33 +89,12 @@ const CartPage = () => {
           </Box>
         )}
 
-        <Box sx={{
-          display: `${cart.length === 0 ? 'none' : 'flex'}`,
-          justifyContent: 'space-between',
-          border: 1,
-          borderRadius: 0,
-          borderColor: 'grey.300',
-          color: 'grey.600',
-          p: 0.5,
-        }}
-        >
-          <Button
-            variant="contained"
-            onClick={() => {
-              navigate('/bikes');
-            }}
-          >
-            Back to shop..
-          </Button>
+        <CartFooter
+          cart={cart}
+          loggedIn={loggedIn}
+          handleCheckout={handleCheckout}
+        />
 
-          <Typography
-            variant="h5"
-          >
-            Cart total:
-            {cart.reduce((prevSum, x) => (prevSum + (x.price * x.amount)), 0)}
-            $
-          </Typography>
-        </Box>
       </Paper>
     </Container>
   );
