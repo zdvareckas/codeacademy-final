@@ -8,16 +8,14 @@ import {
   Toolbar,
   Typography,
 } from '@mui/material';
+import { useLocation, useNavigate } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
 import DirectionsBikeIcon from '@mui/icons-material/DirectionsBike';
 import PersonIcon from '@mui/icons-material/Person';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import { useLocation, useNavigate } from 'react-router-dom';
-import * as Nav from '.';
-import AuthMenu from './auth-menu';
+import { Link, AuthMenu, UserMenu } from '.';
 import useUserCartContext from '../../../hooks/useCartContext';
 import useAuthContext from '../../../hooks/useAuthContext';
-import UserMenu from './user-menu';
 
 const DesktopNav = ({ handleDrawerToggle, pages }) => {
   const location = useLocation();
@@ -69,7 +67,7 @@ const DesktopNav = ({ handleDrawerToggle, pages }) => {
 
         <Box sx={{ display: { xs: 'none', sm: 'flex' }, alignSelf: 'stretch' }}>
           {pages.map(({ text, to }) => (
-            <Nav.Link key={to} to={to}>{text}</Nav.Link>
+            <Link key={to} to={to}>{text}</Link>
           ))}
         </Box>
 
