@@ -14,6 +14,7 @@ import AuthLayout from '../layouts/auth-layout';
 import RequireAuth from './require-auth';
 import ProfilePage from '../pages/profile-page';
 import RequireVisitor from './require-visitor';
+import ErrorPage from '../pages/error-page';
 
 const PageRoutes = () => (
   <Routes>
@@ -31,7 +32,7 @@ const PageRoutes = () => (
         <Route path="login" element={<RequireVisitor><LoginPage /></RequireVisitor>} />
         <Route path="register" element={<RequireVisitor><RegisterPage /></RequireVisitor>} />
       </Route>
-
+      <Route path="*" element={<ErrorPage />} />
     </Route>
   </Routes>
 );
