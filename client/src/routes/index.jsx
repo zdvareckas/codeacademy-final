@@ -28,10 +28,10 @@ const PageRoutes = () => (
       <Route path="cart" element={<CartPage />} />
       <Route path="/profile" element={<RequireAuth><ProfilePage /></RequireAuth>} />
 
-      <Route path="auth" element={<RequireVisitor><AuthLayout /></RequireVisitor>}>
-        <Route path="login" element={<RequireVisitor><LoginPage /></RequireVisitor>} />
-        <Route path="register" element={<RequireVisitor><RegisterPage /></RequireVisitor>} />
-      </Route>
+    </Route>
+    <Route path="auth" element={<RequireVisitor><AuthLayout /></RequireVisitor>}>
+      <Route path="login" element={<RequireVisitor><LoginPage /></RequireVisitor>} />
+      <Route path="register" element={<RequireVisitor><RegisterPage /></RequireVisitor>} />
     </Route>
     <Route path="*" element={<ErrorPage />} />
   </Routes>
