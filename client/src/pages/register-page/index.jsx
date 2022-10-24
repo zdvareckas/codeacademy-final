@@ -9,14 +9,15 @@ import {
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import AuthForm from '../../components/auth-form';
+import AuthService from '../../services/auth-service';
 
 const RegisterPage = () => {
   const initialValues = {
     fullname: '',
     email: '',
-    repeatEmail: '',
+    emailConfirmation: '',
     password: '',
-    repeatPassword: '',
+    passwordConfirmation: '',
     newsLetter: false,
   };
 
@@ -26,8 +27,18 @@ const RegisterPage = () => {
       .min(6, 'Name and surname is too short'),
     email: yup.string()
       .required('Required')
-      .email('Wrong e-mail format'),
-    repeatEmail: yup.string()
+      .email('Wrong e-mail format')
+      .test(
+        'checkEmailUnique',
+        'Email taken',
+        async (email, { parent: { initEmail } }) => {
+          if (initEmail === email) return true;
+          const emailAvailable = await AuthService.checkEmail(email);
+
+          return emailAvailable;
+        },
+      ),
+    emailConfirmation: yup.string()
       .required('Required')
       .oneOf([yup.ref('email'), null], 'E-mails doesn\'t match'),
     password: yup.string()
@@ -35,22 +46,22 @@ const RegisterPage = () => {
       .min(8, 'Minimum 8 symbols')
       .matches(/[a-z]/, 'Atleast one lower case is required')
       .matches(/[A-Z]/, 'Atleast one upper case is required')
-      .matches(/\d/, 'Atleast one number is required'),
-    repeatPassword: yup.string()
+      .matches(/\d/, 'Atleast one number is required')
+      .matches(/\W/, 'Password must have at least one special symbol'),
+    passwordConfirmation: yup.string()
       .required('Required')
       .oneOf([yup.ref('password'), null], 'Passwords doesn\'t match'),
   });
 
-  const onSubmit = (values) => {
-    console.log(values);
-  };
-
   const {
     values, dirty, errors, touched, isValid,
-    handleSubmit, handleChange, handleBlur,
+    handleSubmit, handleChange, handleBlur, resetForm,
   } = useFormik({
     initialValues,
-    onSubmit,
+    onSubmit: async () => {
+      await AuthService.register(values);
+      resetForm();
+    },
     validationSchema,
   });
 
@@ -82,14 +93,14 @@ const RegisterPage = () => {
           helperText={touched.email && errors.email}
         />
         <TextField
-          name="repeatEmail"
+          name="emailConfirmation"
           type="email"
           label="Repeat E-mail"
-          value={values.repeatEmail}
+          value={values.emailConfirmation}
           onChange={handleChange}
           onBlur={handleBlur}
-          error={touched.repeatEmail && Boolean(errors.repeatEmail)}
-          helperText={touched.repeatEmail && errors.repeatEmail}
+          error={touched.emailConfirmation && Boolean(errors.emailConfirmation)}
+          helperText={touched.emailConfirmation && errors.emailConfirmation}
         />
       </Box>
       <Box sx={{ display: 'flex', gap: 1 }}>
@@ -104,14 +115,14 @@ const RegisterPage = () => {
           helperText={touched.password && errors.password}
         />
         <TextField
-          name="repeatPassword"
+          name="passwordConfirmation"
           type="password"
           label="Repeat password"
-          value={values.repeatPassword}
+          value={values.passwordConfirmation}
           onChange={handleChange}
           onBlur={handleBlur}
-          error={touched.repeatPassword && Boolean(errors.repeatPassword)}
-          helperText={touched.repeatPassword && errors.repeatPassword}
+          error={touched.passwordConfirmation && Boolean(errors.passwordConfirmation)}
+          helperText={touched.passwordConfirmation && errors.passwordConfirmation}
         />
       </Box>
 

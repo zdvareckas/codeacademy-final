@@ -16,6 +16,24 @@ const login = async (credetials) => {
   return authData;
 };
 
+const register = async (data) => {
+  const response = await fetch('http://localhost:2566/auth/register', {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
+  });
+  const authData = await response.json();
+
+  if (response.status >= 400) {
+    throw new Error(authData.message);
+  }
+
+  return authData;
+};
+
 const auth = async (token) => {
   const response = await fetch('http://localhost:/auth/', {
     method: 'POST',
@@ -73,6 +91,7 @@ const updateProfile = async ({ formData, token }) => {
 const AuthService = {
   auth,
   login,
+  register,
   checkEmail,
   updateProfile,
 };
