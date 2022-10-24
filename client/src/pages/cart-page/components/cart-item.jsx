@@ -30,7 +30,7 @@ const CartItem = ({ item, removeFromCart, updateCartItemCount }) => (
     <Box sx={{
       position: 'relative',
       display: 'flex',
-      flexDirection: { xs: 'row', lg: 'column' },
+      flexDirection: { xs: 'row', md: 'column' },
       justifyContent: 'space-between',
       minHeight: '100%',
     }}
