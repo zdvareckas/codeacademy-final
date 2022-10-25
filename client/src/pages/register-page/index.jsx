@@ -52,11 +52,6 @@ const RegisterPage = () => {
     passwordConfirmation: yup.string()
       .required('Required')
       .oneOf([yup.ref('password'), null], 'Passwords doesn\'t match'),
-    img: yup.string()
-      .matches(
-        /((https?):\/\/)?(www.)?[a-z0-9]+(\.[a-z]{2,}){1,3}(#?\/?[a-zA-Z0-9#]+)*\/?(\?[a-zA-Z0-9-_]+=[a-zA-Z0-9-%]+&?)?$/,
-        'Enter a correct image URL',
-      ),
   });
 
   const {
@@ -133,16 +128,6 @@ const RegisterPage = () => {
           helperText={touched.passwordConfirmation && errors.passwordConfirmation}
         />
       </Box>
-
-      <TextField
-        name="img"
-        label="Image link"
-        value={values.img}
-        onChange={handleChange}
-        onBlur={handleBlur}
-        error={touched.img && Boolean(errors.img)}
-        helperText={touched.img && errors.img}
-      />
 
       <FormControlLabel
         control={(
