@@ -30,7 +30,6 @@ const BikesPage = () => {
         img="./bikes-banner.jpg"
         title="BIKES"
       />
-
       <Box sx={{
         position: 'relative',
         display: 'flex',
@@ -42,25 +41,24 @@ const BikesPage = () => {
       }}
       >
         <BikesFilter />
-        <ResponsiveItemsGrid filtersOpen={filterOpen}>
-          {bikes.map(({
-            id, title, price, images, size,
-          }) => (
-            <ShopItem
-              key={id}
-              id={id}
-              title={title}
-              images={images}
-              price={price}
-              size={size.label}
-              itemType="bike"
-            />
-          ))}
-
-        </ResponsiveItemsGrid>
-
+        {bikes && (
+          <ResponsiveItemsGrid filtersOpen={filterOpen}>
+            {bikes.map(({
+              id, title, price, images, size,
+            }) => (
+              <ShopItem
+                key={id}
+                id={id}
+                title={title}
+                images={images}
+                price={price}
+                size={size.label}
+                itemType="bike"
+              />
+            ))}
+          </ResponsiveItemsGrid>
+        )}
       </Box>
-
     </Box>
   );
 };

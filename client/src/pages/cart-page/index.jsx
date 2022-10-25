@@ -69,7 +69,6 @@ const CartPage = () => {
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
-            justifyContent: 'center',
             mt: 5,
             gap: { xs: 4, sm: 10 },
           }}
