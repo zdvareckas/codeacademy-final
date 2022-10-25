@@ -38,6 +38,7 @@ const ShopItem = ({
             color: 'common.white',
             width: 30,
             pt: 0.5,
+            ml: 2,
           }}
         >
           {size}

@@ -50,14 +50,13 @@ const AdminControlls = () => {
   }, []);
 
   return (
-    <Box sx={{ display: `${user.role === 'ADMIN' ? 'flex' : 'none'}`, gap: 1 }}>
+    <Box sx={{ display: `${user.role === 'ADMIN' && 'flex'}`, gap: 1 }}>
       <Button
         onClick={handleBikeCreationModalOpen}
         variant="contained"
       >
         ADD BIKE
       </Button>
-
       <Button
         onClick={handleEquipmentCreationModalOpen}
         variant="contained"
@@ -71,13 +70,12 @@ const AdminControlls = () => {
         sx={{
           display: 'flex',
           alignItems: 'center',
+          justifyContent: 'center',
         }}
       >
         <Box
           sx={{
             backgroundColor: 'common.white',
-            p: 1,
-            mx: 'auto',
             width: { xs: '90%', md: '50%' },
           }}
         >
@@ -90,7 +88,6 @@ const AdminControlls = () => {
             Add a new bike
           </Typography>
           <Divider sx={{ width: '100%' }} />
-
           <BikeCreationForm
             sizes={sizes}
             bikeSuspensions={bikeSuspensions}
@@ -106,16 +103,10 @@ const AdminControlls = () => {
         sx={{
           display: 'flex',
           alignItems: 'center',
+          justifyContent: 'center',
         }}
       >
-        <Box
-          sx={{
-            backgroundColor: 'common.white',
-            p: 1,
-            mx: 'auto',
-            width: { xs: '90%', md: '50%' },
-          }}
-        >
+        <Box>
           <Typography
             variant="h3"
             fontWeight="bold"
@@ -125,7 +116,7 @@ const AdminControlls = () => {
             Add a new equipment
           </Typography>
 
-          <Divider sx={{ width: '100%' }} />
+          <Divider />
 
           <EquipmentCreationForm
             sizes={sizes}

@@ -66,7 +66,9 @@ const ProfilePage = () => {
             {user.role}
           </Typography>
 
-          <AdminControlls />
+          {user.role === 'ADMIN' && (
+            <AdminControlls />
+          )}
 
           <Box sx={{
             display: 'flex',
