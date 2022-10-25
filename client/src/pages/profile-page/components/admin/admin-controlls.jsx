@@ -20,7 +20,7 @@ const AdminControlls = () => {
   const [bikeSuspensions, setBikeSuspensions] = React.useState([]);
   const [bikeTypes, setBikeTypes] = React.useState([]);
   const [bikeMaterials, setBikeMaterials] = React.useState([]);
-  const [bikeSizes, setBikeSizes] = React.useState([]);
+  const [sizes, setSizes] = React.useState([]);
   const [equipmentCategories, setEquipmentCategories] = React.useState([]);
 
   const { user } = useAuthContext();
@@ -43,7 +43,7 @@ const AdminControlls = () => {
       );
       setBikeSuspensions(fetchedSuspensions);
       setBikeMaterials(fetchedMaterials);
-      setBikeSizes(fetchedSizes);
+      setSizes(fetchedSizes);
       setBikeTypes(fetchedTypes);
       setEquipmentCategories(fetchedCategories);
     })();
@@ -90,8 +90,9 @@ const AdminControlls = () => {
             Add a new bike
           </Typography>
           <Divider sx={{ width: '100%' }} />
+
           <BikeCreationForm
-            bikeSizes={bikeSizes}
+            sizes={sizes}
             bikeSuspensions={bikeSuspensions}
             bikeMaterials={bikeMaterials}
             bikeTypes={bikeTypes}
@@ -127,7 +128,7 @@ const AdminControlls = () => {
           <Divider sx={{ width: '100%' }} />
 
           <EquipmentCreationForm
-            sizes={bikeSizes}
+            sizes={sizes}
             equipmentCategories={equipmentCategories}
           />
         </Box>

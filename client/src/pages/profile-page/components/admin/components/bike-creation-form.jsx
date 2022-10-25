@@ -42,7 +42,7 @@ const validationSchema = yup.object({
 });
 
 const BikeCreationForm = ({
-  bikeSizes, bikeSuspensions, bikeMaterials, bikeTypes,
+  sizes, bikeSuspensions, bikeMaterials, bikeTypes,
 }) => {
   const onSubmit = async () => {
     await bikesService.addNew(values);
@@ -93,7 +93,7 @@ const BikeCreationForm = ({
           values={values.sizeId}
           touched={touched.sizeId}
           errors={errors.sizeId}
-          options={bikeSizes}
+          options={sizes}
           onChange={handleChange}
           onBlur={handleBlur}
         />
@@ -140,6 +140,7 @@ const BikeCreationForm = ({
         onChange={handleChange}
         onBlur={handleBlur}
       />
+
       <FormTextArea
         fieldLabel="Description"
         fieldName="description"
@@ -151,6 +152,7 @@ const BikeCreationForm = ({
         onBlur={handleBlur}
       />
     </AuthForm>
+
   );
 };
 
