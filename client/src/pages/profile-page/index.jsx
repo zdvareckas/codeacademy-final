@@ -36,13 +36,14 @@ const ProfilePage = () => {
           sx={{
             alignSelf: 'center',
             width: 300,
-            borderRadius: '25%',
+            borderRadius: 2,
           }}
         />
         <Box sx={{
           display: 'flex',
           flexDirection: 'column',
           minHeight: '100%',
+          p: 2,
           gap: 2,
         }}
         >
