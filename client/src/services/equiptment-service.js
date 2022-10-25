@@ -17,7 +17,27 @@ const fetchById = async (id) => {
   return item;
 };
 
+const addNew = async (data) => {
+  const response = await fetch(`${domain}/${collectionName}`, {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+
+    body: JSON.stringify(data),
+  });
+  const responseData = await response.json();
+
+  if (response.status >= 400) {
+    throw new Error(responseData.message);
+  }
+
+  return response;
+};
+
 export const equiptmentService = {
   fetchAll,
   fetchById,
+  addNew,
 };

@@ -53,7 +53,24 @@ const fetch = async (req, res) => {
 };
 
 const create = async (req, res) => {
-  const newEquipmentData = req.body;
+  const {
+    images,
+  } = req.body;
+
+  let reformedImages = [];
+  if (images !== typeof Array) {
+    const imagesArr = images.split('\n');
+    reformedImages = imagesArr;
+  } else {
+    reformedImages = images;
+  }
+
+  const newEquipmentData = {
+    ...req.body,
+    images: reformedImages
+  }
+
+
   try {
     EquipmentModel.validateNew(newEquipmentData);
 

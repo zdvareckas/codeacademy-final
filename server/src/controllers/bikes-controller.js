@@ -79,9 +79,6 @@ const create = async (req, res) => {
     images: reformedImages,
   }
 
-  console.log(req.body)
-
-
   try {
     BikeModel.validateNew(newBikeData);
 

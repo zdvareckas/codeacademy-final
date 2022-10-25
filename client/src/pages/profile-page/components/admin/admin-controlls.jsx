@@ -1,4 +1,3 @@
-/* eslint-disable no-use-before-define */
 import React from 'react';
 import {
   Box, Button, Divider, Modal, Typography,
@@ -7,50 +6,68 @@ import { suspensionsService } from '../../../../services/suspensions-service';
 import { materialsService } from '../../../../services/materials-service';
 import { sizesService } from '../../../../services/sizes-service';
 import { typesService } from '../../../../services/types-service';
+import { categoriesService } from '../../../../services/category-service';
 import useAuthContext from '../../../../hooks/useAuthContext';
 import BikeCreationForm from './components/bike-creation-form';
+import EquipmentCreationForm from './components/equipment-creation-form';
 
 const AdminControlls = () => {
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const [bikeCreationOpen, setBikeCreationOpen] = React.useState(false);
+  const [equipmentCreationOpen, setEquipmentCreationOpen] = React.useState(false);
+  const handleBikeCreationModalOpen = () => setBikeCreationOpen(true);
+  const handleEquipmentCreationModalOpen = () => setEquipmentCreationOpen(true);
 
   const [bikeSuspensions, setBikeSuspensions] = React.useState([]);
   const [bikeTypes, setBikeTypes] = React.useState([]);
   const [bikeMaterials, setBikeMaterials] = React.useState([]);
   const [bikeSizes, setBikeSizes] = React.useState([]);
+  const [equipmentCategories, setEquipmentCategories] = React.useState([]);
 
   const { user } = useAuthContext();
 
   React.useEffect(() => {
     (async () => {
-      const [fetchedSuspensions, fetchedMaterials, fetchedSizes, fetchedTypes] = await Promise.all(
+      const [fetchedSuspensions,
+        fetchedMaterials,
+        fetchedSizes,
+        fetchedTypes,
+        fetchedCategories,
+      ] = await Promise.all(
         [
           suspensionsService.fetchAll(),
           materialsService.fetchAll(),
           sizesService.fetchAll(),
           typesService.fetchAll(),
+          categoriesService.fetchAll(),
         ],
       );
       setBikeSuspensions(fetchedSuspensions);
       setBikeMaterials(fetchedMaterials);
       setBikeSizes(fetchedSizes);
       setBikeTypes(fetchedTypes);
+      setEquipmentCategories(fetchedCategories);
     })();
   }, []);
 
   return (
-    <Box sx={{ display: `${user.role === 'ADMIN' ? '' : 'none'}` }}>
+    <Box sx={{ display: `${user.role === 'ADMIN' ? 'flex' : 'none'}`, gap: 1 }}>
       <Button
-        onClick={handleOpen}
+        onClick={handleBikeCreationModalOpen}
         variant="contained"
       >
-        ADD NEW BIKE
+        ADD BIKE
+      </Button>
+
+      <Button
+        onClick={handleEquipmentCreationModalOpen}
+        variant="contained"
+      >
+        ADD EQUIPMENT
       </Button>
 
       <Modal
-        onClose={handleClose}
-        open={open}
+        onClose={() => setBikeCreationOpen(!bikeCreationOpen)}
+        open={bikeCreationOpen}
         sx={{
           display: 'flex',
           alignItems: 'center',
@@ -65,8 +82,10 @@ const AdminControlls = () => {
           }}
         >
           <Typography
-            variant="h6"
+            variant="h3"
+            fontWeight="bold"
             textAlign="center"
+            sx={{ p: 1 }}
           >
             Add a new bike
           </Typography>
@@ -79,6 +98,41 @@ const AdminControlls = () => {
           />
         </Box>
       </Modal>
+
+      <Modal
+        onClose={() => setEquipmentCreationOpen(!equipmentCreationOpen)}
+        open={equipmentCreationOpen}
+        sx={{
+          display: 'flex',
+          alignItems: 'center',
+        }}
+      >
+        <Box
+          sx={{
+            backgroundColor: 'common.white',
+            p: 1,
+            mx: 'auto',
+            width: { xs: '90%', md: '50%' },
+          }}
+        >
+          <Typography
+            variant="h3"
+            fontWeight="bold"
+            textAlign="center"
+            sx={{ p: 1 }}
+          >
+            Add a new equipment
+          </Typography>
+
+          <Divider sx={{ width: '100%' }} />
+
+          <EquipmentCreationForm
+            sizes={bikeSizes}
+            equipmentCategories={equipmentCategories}
+          />
+        </Box>
+      </Modal>
+
     </Box>
   );
 };
