@@ -3,7 +3,6 @@ import {
   Box,
   Button,
   Container,
-  Divider,
   Paper,
   Typography,
 } from '@mui/material';
@@ -47,13 +46,14 @@ const CartPage = () => {
           variant="h3"
           fontWeight="550"
           textAlign="center"
-          color="grey.500"
-          sx={{ p: 1 }}
+          color="grey.400"
+          sx={{
+            p: 1,
+            borderBottom: 3,
+          }}
         >
           Cart
         </Typography>
-
-        <Divider />
 
         {cart.map((item) => (
           <CartItem
@@ -77,7 +77,7 @@ const CartPage = () => {
               variant="h3"
               textAlign="center"
             >
-              Cart is currently empty..
+              Seems pretty empty in here..
             </Typography>
             <Button
               variant="contained"

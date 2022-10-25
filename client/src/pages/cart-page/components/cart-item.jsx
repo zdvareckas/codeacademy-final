@@ -45,7 +45,6 @@ const CartItem = ({ item, removeFromCart, updateCartItemCount }) => (
       </Typography>
 
       <Box sx={{ display: 'flex', gap: 2 }}>
-
         <Box sx={{
           display: 'flex',
           alignItems: 'center',

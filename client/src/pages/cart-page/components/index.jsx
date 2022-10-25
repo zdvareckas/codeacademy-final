@@ -14,7 +14,7 @@ export const Item = styled(Box)(({ theme }) => ({
   flexDirection: 'row',
   justifyContent: 'space-between',
   paddingBottom: theme.spacing(2),
-  borderBottom: `1px solid ${theme.palette.grey[400]}`,
+  borderBottom: `3px solid ${theme.palette.grey[400]}`,
   [theme.breakpoints.up('xs')]: {
     flexDirection: 'column',
   },
