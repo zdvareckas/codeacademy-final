@@ -13,7 +13,7 @@ const CartFooter = ({ cart, loggedIn, handleCheckout }) => {
       borderRadius: 0,
       borderColor: 'grey.300',
       color: 'grey.600',
-      p: 0.5,
+      p: 2,
     }}
     >
       <Button

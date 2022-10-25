@@ -8,6 +8,7 @@ import {
 import { Navigate } from 'react-router-dom';
 import useAuthContext from '../../hooks/useAuthContext';
 import ProfileNavBtn from './components/profile-nav-btn';
+import AdminControlls from './components/admin/admin-controlls';
 
 const ProfilePage = () => {
   const { user } = useAuthContext();
@@ -64,6 +65,9 @@ const ProfilePage = () => {
             {' '}
             {user.role}
           </Typography>
+
+          <AdminControlls />
+
           <Box sx={{
             display: 'flex',
             alignItems: 'end',
