@@ -19,7 +19,7 @@ const HomePage = () => {
           display: 'flex',
           flexDirection: 'column',
           gap: 25,
-          mt: 10,
+          mt: 15,
           color: 'common.white',
         }}
       >
