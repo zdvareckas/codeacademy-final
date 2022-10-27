@@ -106,7 +106,12 @@ const AdminControlls = () => {
           justifyContent: 'center',
         }}
       >
-        <Box>
+        <Box
+          sx={{
+            backgroundColor: 'common.white',
+            width: { xs: '90%', md: '50%' },
+          }}
+        >
           <Typography
             variant="h3"
             fontWeight="bold"
