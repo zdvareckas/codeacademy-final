@@ -5,7 +5,10 @@ const CartImage = ({ image }) => (
   <Box
     component="img"
     src={image}
-    sx={{ height: 130, width: 200 }}
+    sx={{
+      height: 130,
+      width: 200,
+    }}
   />
 );
 

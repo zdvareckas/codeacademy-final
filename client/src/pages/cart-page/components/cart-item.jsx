@@ -16,7 +16,6 @@ const CartItem = ({ item, removeFromCart, updateCartItemCount }) => (
       <Box sx={{
         display: 'flex',
         flexDirection: 'row',
-        alignItems: 'center',
       }}
       >
         <CartItemDesc
@@ -30,6 +29,7 @@ const CartItem = ({ item, removeFromCart, updateCartItemCount }) => (
     <Box sx={{
       position: 'relative',
       display: 'flex',
+      alignItems: 'center',
       flexDirection: { xs: 'row', md: 'column' },
       justifyContent: 'space-between',
       minHeight: '100%',
@@ -38,13 +38,14 @@ const CartItem = ({ item, removeFromCart, updateCartItemCount }) => (
       <Typography
         variant="h6"
         color="grey.600"
+        sx={{ my: 2 }}
       >
         Total:
         $
         {(Number(item.price) * item.amount).toFixed(2)}
       </Typography>
 
-      <Box sx={{ display: 'flex', gap: 2 }}>
+      <Box sx={{ display: 'flex', gap: 2, alignItems: 'center' }}>
         <Box sx={{
           display: 'flex',
           alignItems: 'center',
@@ -69,7 +70,6 @@ const CartItem = ({ item, removeFromCart, updateCartItemCount }) => (
           >
             <RemoveIcon />
           </IconButton>
-
         </Box>
 
         <IconButton

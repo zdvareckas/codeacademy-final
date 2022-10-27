@@ -13,6 +13,7 @@ const CartFooter = ({ cart, loggedIn, handleCheckout }) => {
       borderRadius: 0,
       borderColor: 'grey.300',
       color: 'grey.600',
+      gap: 1,
       p: 2,
     }}
     >
@@ -35,7 +36,7 @@ const CartFooter = ({ cart, loggedIn, handleCheckout }) => {
       </Button>
 
       <Typography
-        variant="h5"
+        variant="h6"
       >
         Cart total:
         {cart.reduce((prevSum, x) => (prevSum + (x.price * x.amount)), 0)}

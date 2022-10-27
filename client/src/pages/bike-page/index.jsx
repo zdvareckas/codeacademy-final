@@ -55,12 +55,25 @@ const BikePage = () => {
           </Typography>
 
           <Box sx={{ display: 'flex', gap: 1 }}>
-            <Chip label={bike.material?.label} />
-            <Chip label={bike.suspension?.label} />
-            <Chip label={bike.type?.label} />
+            <Chip
+              sx={{ backgroundColor: 'primary.main', color: 'common.white' }}
+              label={bike.material?.label}
+            />
+            <Chip
+              sx={{ backgroundColor: 'primary.main', color: 'common.white' }}
+              label={bike.suspension?.label}
+            />
+            <Chip
+              sx={{ backgroundColor: 'primary.main', color: 'common.white' }}
+              label={bike.type?.label}
+            />
           </Box>
 
-          <Typography variant="h5" color="grey.700">
+          <Typography
+            variant="h5"
+            color="grey.700"
+            fontWeight="bold"
+          >
             $
             {bike.price}
           </Typography>
@@ -85,7 +98,8 @@ const BikePage = () => {
           </Box>
 
           <Typography
-            variant="body2"
+            variant="body3"
+            color="grey.700"
             sx={{ width: { xs: '100%', md: '90%' } }}
           >
             {bike.description}
